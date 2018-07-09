@@ -101,7 +101,7 @@ var quiz = {
     displayReport: function () {
         for(var i=0; i<quiz.toReport.length;i++){
             $('#choices').append('<div id="report' + i + '"></div>');
-            var youSaidButton = $('<button type="button" id="highFront" class="btn btn-danger btn-lg reportButton">' + quiz.toReport[i].youSaid + '</button>');
+            var youSaidButton = $('<button type="button" class="btn btn-danger btn-lg reportButton">' + quiz.toReport[i].youSaid + '</button>');
             youSaidButton.on('click',function(){
                 var audio = $('audio');
                 audio.attr('src', "https://s3.amazonaws.com/audio.oxforddictionaries.com/en/mp3/" + $(this).text() + "_us_1.mp3");
@@ -111,7 +111,7 @@ var quiz = {
                 var newAudio = audio[0].cloneNode(true);
                 audio[0].parentNode.replaceChild(newAudio, audio[0]);
             })
-            var correctButton = $('<button type="button" id="highFront" class="btn btn-success btn-lg reportButton">' + quiz.toReport[i].correctWord + '</button>');
+            var correctButton = $('<button type="button" class="btn btn-success btn-lg reportButton">' + quiz.toReport[i].correctWord + '</button>');
             correctButton.on('click',function(){
                 var audio = $('audio');
                 audio.attr('src', "https://s3.amazonaws.com/audio.oxforddictionaries.com/en/mp3/" + $(this).text() + "_us_1.mp3");
@@ -124,7 +124,18 @@ var quiz = {
             $('#report' + i).append(youSaidButton);
             $('#report' + i).append(correctButton);
         }
-        $('#choices').append('<button type="button" id="highFront" class="btn btn-primary btn-lg answerButton">Try again</button>');
+        $('#choices').append('<button type="button" id="tryAgain" class="btn btn-primary btn-lg answerButton">Try again</button>');
+        $('#tryAgain').on('click',function(){
+            quiz.currentRound = 0;
+            quiz.correctAnswers = 0;
+            $('#correct').text(0);
+            quiz.incorrectAnswers = 0;
+            $('#incorrect').text(0);
+            quiz.timesUp = 0;
+            $('#timeup').text(0);
+            quiz.toReport = [];
+            quiz.nextQuestion();
+        });
     },
 
     // Check whether all the audio files in the current question pool are accessable. 
