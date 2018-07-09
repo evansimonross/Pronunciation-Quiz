@@ -2,12 +2,16 @@ var quiz = {
     questionPool: highFrontVowels,
     totalRounds: 10,
     currentRound: 0,
+    timeLimit: 5,
     correctAnswers: 0,
     incorrectAnswers: 0,
     timesUp: 0,
     nextQuestion: function () {
         $('#choices').empty();
+        $('#timer').text(quiz.timeLimit);
         quiz.currentRound++;
+        var countdownInterval;
+        var countdownTimeout;
 
         // Choose a random question from the question pool, and chooses one correct answer.
         var choicesIndex = Math.floor(Math.random() * quiz.questionPool.length);
@@ -41,6 +45,8 @@ var quiz = {
                 $('#' + choice).on('click', function () {
                     quiz.correctAnswers++;
                     $('#correct').text(quiz.correctAnswers);
+                    clearInterval(countdownInterval);
+                    clearTimeout(countdownTimeout);
                     quiz.nextQuestion();
                 });
 
@@ -53,6 +59,8 @@ var quiz = {
                 $('#' + choice).on('click', function () {
                     quiz.incorrectAnswers++;
                     $('#incorrect').text(quiz.incorrectAnswers);
+                    clearInterval(countdownInterval);
+                    clearTimeout(countdownTimeout);
                     quiz.nextQuestion();
                 });
             }
@@ -64,8 +72,20 @@ var quiz = {
         }
 
         // Set up the countdown timer display interval
+        countdownInterval = setInterval(function(){
+            var currentTime = parseInt($('#timer').text());
+            currentTime--;
+            $('#timer').text(currentTime);
+        },1000);
 
         // Set up the timeout for time running out
+        countdownTimeout = setTimeout(function(){
+            quiz.timesUp++;
+            $('#timeup').text(quiz.timesUp);
+            clearInterval(countdownInterval);
+            clearTimeout(countdownTimeout);
+            quiz.nextQuestion();
+        },1000*(quiz.timeLimit+1));
 
     },
     displayReport: function () {
