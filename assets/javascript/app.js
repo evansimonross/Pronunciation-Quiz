@@ -1,5 +1,5 @@
 var quiz = {
-    questionPool: testPool,
+    questionPool: highFrontVowels,
     totalRounds: 10,
     currentRound: 0,
     correctAnswers: 0,
@@ -19,8 +19,14 @@ var quiz = {
         console.log('The correct answer is ' + choices[correctIndex]);
 
         // Set up audio file for the correct answer
+        var audio = $('audio');
+        audio.attr('src', "https://s3.amazonaws.com/audio.oxforddictionaries.com/en/mp3/" + choices[correctIndex] + "_us_1.mp3");
+        audio[0].addEventListener('loadedmetadata', function () {
+            audio[0].play();
+        });
+        var newAudio = audio[0].cloneNode(true);
+        audio[0].parentNode.replaceChild(newAudio, audio[0]);
 
-        // Play the audio
 
         for (var i = 0; i < choices.length;) {
 
@@ -64,7 +70,23 @@ var quiz = {
     },
     displayReport: function () {
 
+    },
+    checkAudioFiles: function() {
+        for(var i=0; i<quiz.questionPool.length;i++){
+            var questionSet = quiz.questionPool[i];
+            for(var j=0; j<questionSet.length;j++){
+                var audio = $('audio');
+                audio.attr('src', "https://s3.amazonaws.com/audio.oxforddictionaries.com/en/mp3/" + questionSet[j] + "_us_1.mp3");
+                audio[0].addEventListener('loadedmetadata', function () {
+                    //audio[0].play();
+                });
+                var newAudio = audio[0].cloneNode(true);
+                audio[0].parentNode.replaceChild(newAudio, audio[0]);
+            }
+        }
     }
 }
 
-$(document).ready(quiz.nextQuestion());
+$(document).ready(function () {
+    $('#clickMe').on('click', quiz.nextQuestion);
+});
