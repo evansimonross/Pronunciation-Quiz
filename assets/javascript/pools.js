@@ -9,10 +9,27 @@ var highFrontVowels = [['bleep', 'blip'], ['cheap', 'chip'], ['creep', 'crip'], 
 ['wheeze', 'whiz'],
 ['beach', 'bitch'], ['each', 'itch'], ['peach', 'pitch'],
 ['leafed', 'lift'], ['reef', 'riff'],
-['leave', 'live']];
+['leave', 'live']
+];
 
 var highFrontVowelsFileNotFound = [['deep', 'dip'], ['reap', 'rip'], ['streep', 'strip'], ['eat', 'it'], ['leet', 'lit'], ['seen', 'sin'], ['wield', 'willed'], ['leech', 'lich']];
 
 var highBackVowels = [['poot', 'put'], ['suit', 'soot'], ['cuke', 'cook'], ['nuke', 'nook'], ['tuque', 'took'], ['stewed', 'stood'], ['fool', 'full'], ['pool', 'pull']];
 
 var highBackVowelsFileNotFound = [['kooky', 'cookie'], ['who\'d', 'hood']];
+
+var lowVowels = [['app', 'up'], ['cup', 'cop'], ['chap', 'chop'], ['clap', 'clop'], ['crap', 'crop'], ['flap', 'flop'], ['hap', 'hup', 'hop'], ['lap', 'lop'], ['map', 'mop'], ['pap', 'pup', 'pop'], ['sap', 'sup', 'sop'], ['slap', 'slop'], ['strap', 'strop'], ['tap', 'tup', 'top'], ['yap', 'yup'],
+['bat', 'but', 'bot'], ['batter', 'butter'], ['blat', 'blot'], ['cat', 'cut', 'cot'], ['gnat', 'nut', 'not'], ['gut', 'got'], ['hat', 'hut', 'hot'], ['jut', 'jot'], ['lat', 'lot'], ['mat', 'mutt'], ['pat', 'putt', 'pot'], ['rat', 'rut', 'rot'], ['shut', 'shot'], ['slat', 'slut', 'slot'], ['spat', 'spot'], ['stat', 'stot'], ['tat', 'tut', 'tot'],
+['ax', 'ox'], ['back', 'buck', 'bock'], ['black', 'block'], ['duck', 'dock'], ['fax', 'fox'], ['flack', 'flock'], ['frack', 'frock'], ['hack', 'huck', 'hock'], ['jack', 'jock'], ['knack', 'knock'], ['lack', 'luck', 'lock'], ['lax', 'lux', 'lox'], ['muck', 'mock'], ['pack', 'puck', 'pock'], ['plaque', 'pluck'], ['rack', 'ruck', 'rock'], ['sack', 'suck', 'sock'], ['shack', 'shuck', 'shock'], ['stack', 'stuck', 'stock'], ['tack', 'tuck'], ['track', 'truck'], ['vax', 'vox'], ['whack', 'wok'], ['yak', 'yuck'],
+['bub', 'bob'], ['blab', 'blob'], ['blabber', 'blubber'], ['cab', 'cub', 'cob'], ['dab', 'dub'], ['flab', 'flub'], ['gab', 'gob'], ['hub', 'hob'], ['jab', 'job'], ['lab', 'lob'], ['nab', 'knob'], ['rub', 'rob'], ['slab', 'slob'], ['stab', 'stub'], ['tab', 'tub'],
+['adder', 'udder', 'otter'], ['adze', 'odds'], ['bad', 'bud', 'bod'], ['cad', 'cud'], ['dad', 'dud'], ['gad', 'god'], ['mad', 'mud'], ['pad', 'pod'], ['plaid', 'plod'], ['rad', 'rod'], ['sad', 'sod'], ['sadden', 'sudden', 'sodden'], ['tad', 'tod'],
+['bag', 'bug'], ['buggy', 'boggy'], ['dug', 'dog'], ['drag', 'drug'], ['hag', 'hug', 'hog'], ['jag', 'jug', 'jog'], ['rag', 'rug'], ['saggy', 'soggy'], ['snag', 'snug', 'snog'], ['tag', 'tug'], ['wag', 'wog'],
+['bam', 'bum', 'bomb'], ['cam', 'come', 'calm'], ['cram', 'crumb'], ['dam', 'dumb', 'dom'], ['dram', 'drum'], ['ham', 'hum'], ['mam', 'mum', 'mom'], ['ram', 'rum', 'rom'], ['scam', 'scum'], ['slam', 'slum'], ['tummy', 'tommy'], ['yam', 'yum'],
+['ban', 'bun'], ['bland', 'blond'], ['dun', 'don'], ['fan', 'fun'], ['fund', 'fond'], ['manny', 'money'], ['pan', 'pun'], ['ran', 'run'], ['rant', 'runt'], ['tan', 'ton'],
+['batch', 'botch'], ['crutch', 'crotch'], ['hatch', 'hutch'], ['match', 'much'], ['natch', 'notch'],
+['buff', 'boff'], ['calf', 'cuff', 'cough'], ['gaff', 'guff'], ['half', 'huff'], ['staff', 'stuff'],
+['lav', 'love'],
+['math', 'moth'], ['wrath', 'wroth']
+];
+
+var lowVowelsFileNotFound = [['cap', 'cup', 'cop'], ['sat', 'sot'], ['shat', 'shut', 'shot'], ['tack', 'tuck', 'tock'], ['sub', 'sob'], ['cad', 'cud', 'cod'], ['mad', 'mud', 'mod'], ['bag', 'bug', 'bog'], ['am', 'um'], ['numb', 'nom'], ['can', 'con'], ['stand', 'stunned']];

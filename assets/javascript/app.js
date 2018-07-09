@@ -9,12 +9,11 @@ var quiz = {
     toReport: [],
     nextQuestion: function () {
         $('#choices').empty();
-        $('#timer').text(quiz.timeLimit);
         if(quiz.currentRound===quiz.totalRounds || quiz.questionPool.length===0){
             quiz.displayReport();
             return;
         }
-
+        $('#timer').text(quiz.timeLimit);
         quiz.currentRound++;
         var countdownInterval;
         var countdownTimeout;
@@ -153,6 +152,9 @@ $(document).ready(function () {
     $('#highBack').on('click', function(){
         quiz.questionPool = highBackVowels;
     });
+    $('#low').on('click', function(){
+        quiz.questionPool = lowVowels;
+    })
 
     // Set this as our final function to check if there are any erroneous file names.
     //$('.answerButton').on('click',quiz.checkAudioFiles);
