@@ -8,15 +8,18 @@ var quiz = {
     timesUp: 0,
     toReport: [],
     nextQuestion: function () {
+        var countdownInterval;
+        var countdownTimeout;
+
         $('#choices').empty();
-        if(quiz.currentRound===quiz.totalRounds || quiz.questionPool.length===0){
+        if (quiz.currentRound === quiz.totalRounds || quiz.questionPool.length === 0) {
+            clearInterval(countdownInterval);
+            clearTimeout(countdownTimeout);
             quiz.displayReport();
             return;
         }
         $('#timer').text(quiz.timeLimit);
         quiz.currentRound++;
-        var countdownInterval;
-        var countdownTimeout;
 
         // Choose a random question from the question pool, and chooses one correct answer.
         var choicesIndex = Math.floor(Math.random() * quiz.questionPool.length);
@@ -68,7 +71,7 @@ var quiz = {
                     clearInterval(countdownInterval);
                     clearTimeout(countdownTimeout);
                     var youSaid = $(this).text();
-                    quiz.toReport.push({correctWord, youSaid});
+                    quiz.toReport.push({ correctWord, youSaid });
                     quiz.nextQuestion();
                 });
             }
@@ -80,39 +83,52 @@ var quiz = {
         }
 
         // Set up the countdown timer display interval
-        countdownInterval = setInterval(function(){
+        countdownInterval = setInterval(function () {
             var currentTime = parseInt($('#timer').text());
             currentTime--;
             $('#timer').text(currentTime);
-        },1000);
+        }, 1000);
 
         // Set up the timeout for time running out
-        countdownTimeout = setTimeout(function(){
+        countdownTimeout = setTimeout(function () {
             quiz.timesUp++;
             $('#timeup').text(quiz.timesUp);
             clearInterval(countdownInterval);
             clearTimeout(countdownTimeout);
+            quiz.toReport.push({ correctWord, youSaid: "(TIME)" });
             quiz.nextQuestion();
-        },1000*(quiz.timeLimit+1));
+        }, 1000 * (quiz.timeLimit + 1));
 
     },
 
     // Report the results of the quiz.
     displayReport: function () {
-        for(var i=0; i<quiz.toReport.length;i++){
+        if (quiz.toReport.length === 0) {
+            $('#choices').append('<h3>100% Correct!</h3>');
+        }
+        else {
+            $('#choices').append('<h3>Incorrect Responsises:</h3>');
+        }
+
+        for (var i = 0; i < quiz.toReport.length; i++) {
             $('#choices').append('<div id="report' + i + '"></div>');
             var youSaidButton = $('<button type="button" class="btn btn-danger btn-lg reportButton">' + quiz.toReport[i].youSaid + '</button>');
-            youSaidButton.on('click',function(){
-                var audio = $('audio');
-                audio.attr('src', "https://s3.amazonaws.com/audio.oxforddictionaries.com/en/mp3/" + $(this).text() + "_us_1.mp3");
-                audio[0].addEventListener('loadedmetadata', function () {
-                    audio[0].play();
-                });
-                var newAudio = audio[0].cloneNode(true);
-                audio[0].parentNode.replaceChild(newAudio, audio[0]);
-            })
+            youSaidButton.on('click', function () {
+                if ($(this).text() === "(TIME)") {
+
+                }
+                else {
+                    var audio = $('audio');
+                    audio.attr('src', "https://s3.amazonaws.com/audio.oxforddictionaries.com/en/mp3/" + $(this).text() + "_us_1.mp3");
+                    audio[0].addEventListener('loadedmetadata', function () {
+                        audio[0].play();
+                    });
+                    var newAudio = audio[0].cloneNode(true);
+                    audio[0].parentNode.replaceChild(newAudio, audio[0]);
+                }
+            });
             var correctButton = $('<button type="button" class="btn btn-success btn-lg reportButton">' + quiz.toReport[i].correctWord + '</button>');
-            correctButton.on('click',function(){
+            correctButton.on('click', function () {
                 var audio = $('audio');
                 audio.attr('src', "https://s3.amazonaws.com/audio.oxforddictionaries.com/en/mp3/" + $(this).text() + "_us_1.mp3");
                 audio[0].addEventListener('loadedmetadata', function () {
@@ -124,25 +140,24 @@ var quiz = {
             $('#report' + i).append(youSaidButton);
             $('#report' + i).append(correctButton);
         }
-        $('#choices').append('<button type="button" id="tryAgain" class="btn btn-primary btn-lg answerButton">Try again</button>');
-        $('#tryAgain').on('click',function(){
+        var disableButton = "";
+        if (quiz.questionPool.length === 0) {
+            disableButton = " disabled";
+        }
+        $('#choices').append('<button type="button" id="tryAgain" class="btn btn-primary btn-lg answerButton"' + disableButton + '> Try Again</button>');
+        $('#tryAgain').on('click', function () {
             quiz.currentRound = 0;
-            quiz.correctAnswers = 0;
-            $('#correct').text(0);
-            quiz.incorrectAnswers = 0;
-            $('#incorrect').text(0);
-            quiz.timesUp = 0;
-            $('#timeup').text(0);
-            quiz.toReport = [];
             quiz.nextQuestion();
         });
+        $('#choices').append('<button type="button" id="mainMenu" class="btn btn-primary btn-lg answerButton">Main Menu</button>');
+        $('#mainMenu').on('click', displayMainMenu);
     },
 
     // Check whether all the audio files in the current question pool are accessable. 
-    checkAudioFiles: function() {
-        for(var i=0; i<quiz.questionPool.length;i++){
+    checkAudioFiles: function () {
+        for (var i = 0; i < quiz.questionPool.length; i++) {
             var questionSet = quiz.questionPool[i];
-            for(var j=0; j<questionSet.length;j++){
+            for (var j = 0; j < questionSet.length; j++) {
                 var audio = $('audio');
                 audio.attr('src', "https://s3.amazonaws.com/audio.oxforddictionaries.com/en/mp3/" + questionSet[j] + "_us_1.mp3");
                 audio[0].addEventListener('loadedmetadata', function () {
@@ -155,15 +170,33 @@ var quiz = {
     }
 }
 
-// Sets click listeners for the options buttons at the start
-$(document).ready(function () {
-    $('#highFront').on('click', function(){
+clearData = function () {
+    quiz.currentRound = 0;
+    quiz.correctAnswers = 0;
+    $('#correct').text(0);
+    quiz.incorrectAnswers = 0;
+    $('#incorrect').text(0);
+    quiz.timesUp = 0;
+    $('#timeup').text(0);
+    quiz.toReport = [];
+}
+
+displayMainMenu = function () {
+    clearData();
+    $('#choices').empty();
+
+    $('#choices').append('<button type="button" id="highFront" class="btn btn-primary btn-lg answerButton">[i] vs. [ɪ]</button>');
+    $('#highFront').on('click', function () {
         quiz.questionPool = highFrontVowels;
     });
-    $('#highBack').on('click', function(){
+
+    $('#choices').append('<button type="button" id="highBack" class="btn btn-primary btn-lg answerButton">[u] vs. [ʊ]</button>');
+    $('#highBack').on('click', function () {
         quiz.questionPool = highBackVowels;
     });
-    $('#low').on('click', function(){
+
+    $('#choices').append('<button type="button" id="low" class="btn btn-primary btn-lg answerButton">[æ], [ʌ], [ɑ]</button>');
+    $('#low').on('click', function () {
         quiz.questionPool = lowVowels;
     })
 
@@ -171,5 +204,11 @@ $(document).ready(function () {
     //$('.answerButton').on('click',quiz.checkAudioFiles);
 
     // Set this as our final function for main quiz functionality.
-    $('.answerButton').on('click',quiz.nextQuestion);
+    $('.answerButton').on('click', quiz.nextQuestion);
+
+};
+
+// Sets click listeners for the options buttons at the start
+$(document).ready(function () {
+    displayMainMenu();
 });
