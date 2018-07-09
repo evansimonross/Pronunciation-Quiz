@@ -1,5 +1,5 @@
 var quiz = {
-    questionPool: highFrontVowels,
+    questionPool: [],
     totalRounds: 10,
     currentRound: 0,
     timeLimit: 5,
@@ -9,6 +9,11 @@ var quiz = {
     nextQuestion: function () {
         $('#choices').empty();
         $('#timer').text(quiz.timeLimit);
+        if(quiz.currentRound===quiz.totalRounds || quiz.questionPool.length===0){
+            quiz.displayReport();
+            return;
+        }
+
         quiz.currentRound++;
         var countdownInterval;
         var countdownTimeout;
@@ -108,5 +113,12 @@ var quiz = {
 }
 
 $(document).ready(function () {
-    $('#clickMe').on('click', quiz.nextQuestion);
+    $('#highFront').on('click', function(){
+        quiz.questionPool = highFrontVowels;
+    });
+    $('#highBack').on('click', function(){
+        quiz.questionPool = highBackVowels;
+    });
+    //$('.answerButton').on('click',quiz.checkAudioFiles);
+    $('.answerButton').on('click',quiz.nextQuestion);
 });
