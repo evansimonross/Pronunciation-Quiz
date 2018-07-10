@@ -107,7 +107,7 @@ var quiz = {
             $('#choices').append('<h3>100% Correct!</h3>');
         }
         else {
-            $('#choices').append('<h3>Incorrect Responsises:</h3>');
+            $('#choices').append('<h3>Incorrect Responses:</h3>');
         }
 
         for (var i = 0; i < quiz.toReport.length; i++) {
@@ -151,6 +151,8 @@ var quiz = {
         });
         $('#choices').append('<button type="button" id="mainMenu" class="btn btn-primary btn-lg answerButton">Main Menu</button>');
         $('#mainMenu').on('click', displayMainMenu);
+
+        quiz.toReport = [];
     },
 
     // Check whether all the audio files in the current question pool are accessable. 
@@ -198,6 +200,11 @@ displayMainMenu = function () {
     $('#choices').append('<button type="button" id="low" class="btn btn-primary btn-lg answerButton">[æ], [ʌ], [ɑ]</button>');
     $('#low').on('click', function () {
         quiz.questionPool = lowVowels;
+    })
+
+    $('#choices').append('<button type="button" id="midBack" class="btn btn-primary btn-lg answerButton">[ɔ], [ou], [oɚ]</button>');
+    $('#midBack').on('click', function () {
+        quiz.questionPool = midBackVowels;
     })
 
     // Set this as our final function to check if there are any erroneous file names.
