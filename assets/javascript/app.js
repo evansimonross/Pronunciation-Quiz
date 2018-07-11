@@ -32,14 +32,10 @@ var quiz = {
         console.log('The correct answer is ' + correctWord);
 
         // Set up audio file for the correct answer
-        var audio = $('audio');
-        audio.attr('src', "https://s3.amazonaws.com/audio.oxforddictionaries.com/en/mp3/" + correctWord + "_us_1.mp3");
-        audio[0].addEventListener('loadedmetadata', function () {
-            audio[0].play();
-        });
-        var newAudio = audio[0].cloneNode(true);
-        audio[0].parentNode.replaceChild(newAudio, audio[0]);
 
+        var player = document.getElementById('player');
+        player.src = "https://s3.amazonaws.com/audio.oxforddictionaries.com/en/mp3/" + correctWord + "_us_1.mp3";
+        player.play();
 
         for (var i = 0; i < choices.length;) {
 
@@ -118,24 +114,16 @@ var quiz = {
 
                 }
                 else {
-                    var audio = $('audio');
-                    audio.attr('src', "https://s3.amazonaws.com/audio.oxforddictionaries.com/en/mp3/" + $(this).text() + "_us_1.mp3");
-                    audio[0].addEventListener('loadedmetadata', function () {
-                        audio[0].play();
-                    });
-                    var newAudio = audio[0].cloneNode(true);
-                    audio[0].parentNode.replaceChild(newAudio, audio[0]);
+                    var player = document.getElementById('player');
+                    player.src = "https://s3.amazonaws.com/audio.oxforddictionaries.com/en/mp3/" + $(this).text() + "_us_1.mp3";
+                    player.play();
                 }
             });
             var correctButton = $('<button type="button" class="btn btn-success btn-lg reportButton">' + quiz.toReport[i].correctWord + '</button>');
             correctButton.on('click', function () {
-                var audio = $('audio');
-                audio.attr('src', "https://s3.amazonaws.com/audio.oxforddictionaries.com/en/mp3/" + $(this).text() + "_us_1.mp3");
-                audio[0].addEventListener('loadedmetadata', function () {
-                    audio[0].play();
-                });
-                var newAudio = audio[0].cloneNode(true);
-                audio[0].parentNode.replaceChild(newAudio, audio[0]);
+                var player = document.getElementById('player');
+                player.src = "https://s3.amazonaws.com/audio.oxforddictionaries.com/en/mp3/" + $(this).text() + "_us_1.mp3";
+                player.play();
             })
             $('#report' + i).append(youSaidButton);
             $('#report' + i).append(correctButton);
@@ -172,6 +160,11 @@ var quiz = {
     }
 }
 
+setUpAudio = function (){
+    var player = document.getElementById('player');
+    player.play();
+}
+
 clearData = function () {
     quiz.currentRound = 0;
     quiz.correctAnswers = 0;
@@ -190,21 +183,25 @@ displayMainMenu = function () {
     $('#choices').append('<button type="button" id="highFront" class="btn btn-primary btn-lg answerButton">[i] vs. [ɪ]</button>');
     $('#highFront').on('click', function () {
         quiz.questionPool = highFrontVowels;
+        setUpAudio();
     });
 
     $('#choices').append('<button type="button" id="highBack" class="btn btn-primary btn-lg answerButton">[u] vs. [ʊ]</button>');
     $('#highBack').on('click', function () {
         quiz.questionPool = highBackVowels;
+        setUpAudio();
     });
 
     $('#choices').append('<button type="button" id="low" class="btn btn-primary btn-lg answerButton">[æ], [ʌ], [ɑ]</button>');
     $('#low').on('click', function () {
         quiz.questionPool = lowVowels;
+        setUpAudio();
     })
 
     $('#choices').append('<button type="button" id="midBack" class="btn btn-primary btn-lg answerButton">[ɔ], [ou], [oɚ]</button>');
     $('#midBack').on('click', function () {
         quiz.questionPool = midBackVowels;
+        setUpAudio();
     })
 
     // Set this as our final function to check if there are any erroneous file names.
