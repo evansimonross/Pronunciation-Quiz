@@ -46,3 +46,17 @@ var midBackVowels = [['awe','owe','or'],['caw','core'],['craw','crow'],['daw', '
 ];
 
 var midBackVowelsFileNotFound =[['daw','doe','door'],['gaud','goad','gourd'],['cone','corn'],]
+
+var rColoredVowels = [['burr','bar','bore'],['chirr', 'char', 'chore'], ['cur','car','core'],['fur','far','for'],['mar','more'],['purr','par','pour'],['sir','soar'],['stir','star','store'],['sure','shore'],['tar','tore'],
+['curt','cart','court'],['dirt','dart'],['hurt','heart'],['pert','part','port'],['shirt','short'],['tart','tort'],['wert','wart'],
+['irk','orc'],['dark','dork'],['kirk','cork'],['lurk','lark'],['murk','mark'], ['perk','park','pork'],['quirk','quark'],['shirk','shark'],
+['bird','bard','board'],['curd','card','cord'],['gird','guard'],['herd','hard','hoard'], ['lard','lord'],['sard','sword'],['word','ward'],
+['erg','org'],
+['derm','dorm'],['firm','farm','form'],['perm','parm'],['worm','warm'],
+['burn','barn','born'],['learn','lorn'],['skarn','scorn'],['turn','torn'],
+['curse','course'],['first','forced'],['hearse','horse'],['nurse','norse'],['purse','parse'],
+['lurch','larch'],['merch','march'],['perch','parch','porch'],
+['girth','garth']
+];
+
+var rColoredVowelsFileNotFound =[['carp','corp'],['turk','torque'],]

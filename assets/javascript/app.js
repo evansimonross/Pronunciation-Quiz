@@ -204,6 +204,13 @@ displayMainMenu = function () {
         setUpAudio();
     })
 
+    $('#choices').append('<button type="button" id="rColored" class="btn btn-primary btn-lg answerButton">[ɚ], [aɚ], [oɚ]</button>');
+    $('#rColored').on('click', function () {
+        quiz.questionPool = rColoredVowels;
+        setUpAudio();
+    })
+
+
     // Set this as our final function to check if there are any erroneous file names.
     //$('.answerButton').on('click',quiz.checkAudioFiles);
 
