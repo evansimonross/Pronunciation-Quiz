@@ -137,7 +137,7 @@ var quiz = {
             quiz.currentRound = 0;
             quiz.nextQuestion();
         });
-        $('#choices').append('<button type="button" id="mainMenu" class="btn btn-primary btn-lg answerButton">Main Menu</button>');
+        $('#choices').append('<button type="button" id="mainMenu" class="btn btn-dark btn-lg answerButton">Main Menu</button>');
         $('#mainMenu').on('click', displayMainMenu);
 
         quiz.toReport = [];
@@ -160,7 +160,7 @@ var quiz = {
     }
 }
 
-setUpAudio = function (){
+setUpAudio = function () {
     var player = document.getElementById('player');
     player.play();
 }
@@ -176,40 +176,38 @@ clearData = function () {
     quiz.toReport = [];
 }
 
-displayMainMenu = function () {
-    clearData();
+displayVowels = function () {
     $('#choices').empty();
 
     $('#choices').append('<button type="button" id="highFront" class="btn btn-primary btn-lg answerButton">[i] vs. [ɪ]</button>');
     $('#highFront').on('click', function () {
         quiz.questionPool = highFrontVowels;
-        setUpAudio();
     });
 
     $('#choices').append('<button type="button" id="highBack" class="btn btn-primary btn-lg answerButton">[u] vs. [ʊ]</button>');
     $('#highBack').on('click', function () {
         quiz.questionPool = highBackVowels;
-        setUpAudio();
     });
 
     $('#choices').append('<button type="button" id="low" class="btn btn-primary btn-lg answerButton">[æ], [ʌ], [ɑ]</button>');
     $('#low').on('click', function () {
         quiz.questionPool = lowVowels;
-        setUpAudio();
     })
 
     $('#choices').append('<button type="button" id="midBack" class="btn btn-primary btn-lg answerButton">[ɔ], [ou], [oɚ]</button>');
     $('#midBack').on('click', function () {
         quiz.questionPool = midBackVowels;
-        setUpAudio();
     })
 
     $('#choices').append('<button type="button" id="rColored" class="btn btn-primary btn-lg answerButton">[ɚ], [aɚ], [oɚ]</button>');
     $('#rColored').on('click', function () {
         quiz.questionPool = rColoredVowels;
-        setUpAudio();
     })
 
+    $('#choices').append('<button type="button" id="back" class="btn btn-dark btn-lg menuButton">Main Menu</button>');
+    $('#back').on('click', function () {
+        displayMainMenu();
+    })
 
     // Set this as our final function to check if there are any erroneous file names.
     //$('.answerButton').on('click',quiz.checkAudioFiles);
@@ -218,6 +216,44 @@ displayMainMenu = function () {
     $('.answerButton').on('click', quiz.nextQuestion);
 
 };
+
+displayConsonants = function () {
+    $('#choices').empty();
+
+    // $('#choices').append('<button type="button" id="highFront" class="btn btn-primary btn-lg answerButton">[i] vs. [ɪ]</button>');
+    // $('#highFront').on('click', function () {
+    //     quiz.questionPool = highFrontVowels;
+    // });
+
+    $('#choices').append('<button type="button" id="back" class="btn btn-dark btn-lg menuButton">Main Menu</button>');
+    $('#back').on('click', function () {
+        displayMainMenu();
+    })
+
+    // Set this as our final function to check if there are any erroneous file names.
+    //$('.answerButton').on('click',quiz.checkAudioFiles);
+
+    // Set this as our final function for main quiz functionality.
+    $('.answerButton').on('click', quiz.nextQuestion);
+
+};
+
+displayMainMenu = function () {
+    clearData();
+    $('#choices').empty();
+
+    $('#choices').append('<button type="button" id="vowels" class="btn btn-primary btn-lg menuButton">Vowels</button>');
+    $('#vowels').on('click', function () {
+        displayVowels();
+        setUpAudio();
+    });
+
+    $('#choices').append('<button type="button" id="consonants" class="btn btn-primary btn-lg menuButton">Consonants</button>');
+    $('#consonants').on('click', function () {
+        displayConsonants();
+        setUpAudio();
+    });
+}
 
 // Sets click listeners for the options buttons at the start
 $(document).ready(function () {

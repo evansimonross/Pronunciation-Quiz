@@ -60,3 +60,11 @@ var rColoredVowels = [['burr','bar','bore'],['chirr', 'char', 'chore'], ['cur','
 ];
 
 var rColoredVowelsFileNotFound =[['carp','corp'],['turk','torque'],]
+
+var rl = [['rack','lack'],['rad','lad'],['raid','laid'],['raff','laugh'],['rag','lag'],['rake','lake'],['ram','lamb'],['ran','lan'],['rain','lain'],['wrap','lap'],['rat','lat'],['rate','late'],['raw','law'],
+['red','led'],['reed','lead'],['reef','leaf'],['reek','leak'],['real','leal'],['rend','lend'],['reap','leap'],['rear','leer'],['rest','lest'],['reave','leave'],
+['rib','lib'],['rick','lick'],['rid','lid'],['rife','life'],['rift','lift'],['rhyme','lime'],['rip','lip'],['wrist','list'],['writ','lit'],['right','light'],['river','liver'],
+['rob','lob'],['robe','lobe'],['rock','lock'],['rode','load'],['roan','lone'],['rope'],['lope'],['rot','lot'],
+['ruck','luck'],['rude','lewd'],['rug','lug'],['ruse','lose'],['rust','lust'],
+['brand','bland'],['brat','blat']
+];
