@@ -227,6 +227,20 @@ displayConsonants = function () {
         quiz.questionPool = rl;
     });
 
+    $('#choices').append('<button type="button" id="nl" class="btn btn-primary btn-lg answerButton">[n] vs. [l]</button>');
+    $('#nl').on('click', function () {
+        quiz.questionPool = nl;
+    });
+    $('#choices').append('<button type="button" id="vw" class="btn btn-primary btn-lg answerButton">[v] vs. [w]</button>');
+    $('#vw').on('click', function () {
+        quiz.questionPool = vw;
+    });
+
+    $('#choices').append('<button type="button" id="vb" class="btn btn-primary btn-lg answerButton">[v] vs. [b]</button>');
+    $('#vb').on('click', function () {
+        quiz.questionPool = vb;
+    });
+
     $('#choices').append('<button type="button" id="back" class="btn btn-dark btn-lg menuButton">Main Menu</button>');
     $('#back').on('click', function () {
         displayMainMenu();
