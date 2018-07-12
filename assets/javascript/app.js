@@ -1,3 +1,4 @@
+var audioSet = false;
 var quiz = {
     questionPool: [],
     totalRounds: 10,
@@ -163,6 +164,7 @@ var quiz = {
 setUpAudio = function () {
     var player = document.getElementById('player');
     player.play();
+    audioSet = true;
 }
 
 clearData = function () {
@@ -220,10 +222,10 @@ displayVowels = function () {
 displayConsonants = function () {
     $('#choices').empty();
 
-    // $('#choices').append('<button type="button" id="highFront" class="btn btn-primary btn-lg answerButton">[i] vs. [ɪ]</button>');
-    // $('#highFront').on('click', function () {
-    //     quiz.questionPool = highFrontVowels;
-    // });
+    $('#choices').append('<button type="button" id="rl" class="btn btn-primary btn-lg answerButton">[r] vs. [l]</button>');
+    $('#rl').on('click', function () {
+        quiz.questionPool = rl;
+    });
 
     $('#choices').append('<button type="button" id="back" class="btn btn-dark btn-lg menuButton">Main Menu</button>');
     $('#back').on('click', function () {
@@ -245,13 +247,17 @@ displayMainMenu = function () {
     $('#choices').append('<button type="button" id="vowels" class="btn btn-primary btn-lg menuButton">Vowels</button>');
     $('#vowels').on('click', function () {
         displayVowels();
-        setUpAudio();
+        if(!audioSet){
+            setUpAudio();
+        }
     });
 
     $('#choices').append('<button type="button" id="consonants" class="btn btn-primary btn-lg menuButton">Consonants</button>');
     $('#consonants').on('click', function () {
         displayConsonants();
-        setUpAudio();
+        if(!audioSet){
+            setUpAudio();
+        }
     });
 }
 
