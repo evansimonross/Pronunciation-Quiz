@@ -79,6 +79,15 @@ var quiz = {
             }
         }
 
+        // Add a quit button
+        $('#choices').append('<button type="button" id="quit" class="btn btn-dark btn-lg menuButton">Quit</button>')
+        $('#quit').on('click', function () {
+            clearInterval(countdownInterval);
+            clearTimeout(countdownTimeout);
+            quiz.currentRound = quiz.totalRounds;
+            quiz.nextQuestion();
+        });
+
         // Set up the countdown timer display interval
         countdownInterval = setInterval(function () {
             var currentTime = parseInt($('#timer').text());
@@ -100,6 +109,8 @@ var quiz = {
 
     // Report the results of the quiz.
     displayReport: function () {
+        $('#timer').text('Quiz Results')
+
         if (quiz.toReport.length === 0) {
             $('#choices').append('<h3>100% Correct!</h3>');
         }
@@ -255,13 +266,15 @@ displayConsonants = function () {
 };
 
 displayMainMenu = function () {
+    $('#timer').text("Evan's Pronunciation Quiz");
+
     clearData();
     $('#choices').empty();
 
     $('#choices').append('<button type="button" id="vowels" class="btn btn-primary btn-lg menuButton">Vowels</button>');
     $('#vowels').on('click', function () {
         displayVowels();
-        if(!audioSet){
+        if (!audioSet) {
             setUpAudio();
         }
     });
@@ -269,7 +282,7 @@ displayMainMenu = function () {
     $('#choices').append('<button type="button" id="consonants" class="btn btn-primary btn-lg menuButton">Consonants</button>');
     $('#consonants').on('click', function () {
         displayConsonants();
-        if(!audioSet){
+        if (!audioSet) {
             setUpAudio();
         }
     });

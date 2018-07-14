@@ -12,7 +12,7 @@ var highFrontVowels = [['bleep', 'blip'], ['cheap', 'chip'], ['creep', 'crip'], 
 ['leave', 'live']
 ];
 
-var highFrontVowelsFileNotFound = [['deep', 'dip'], ['reap', 'rip'], ['streep', 'strip'], ['eat', 'it'], ['leet', 'lit'], ['seen', 'sin'], ['wield', 'willed'], ['leech', 'lich']];
+var highFrontVowelsFileNotFound = [['caesar','scissor'],['deep', 'dip'], ['reap', 'rip'], ['streep', 'strip'], ['eat', 'it'], ['leet', 'lit'], ['seen', 'sin'], ['wield', 'willed'], ['leech', 'lich']];
 
 var highBackVowels = [['poot', 'put'], ['suit', 'soot'], ['cuke', 'cook'], ['nuke', 'nook'], ['tuque', 'took'], ['stewed', 'stood'], ['fool', 'full'], ['pool', 'pull']];
 
@@ -61,16 +61,16 @@ var rColoredVowels = [['burr','bar','bore'],['chirr', 'char', 'chore'], ['cur','
 
 var rColoredVowelsFileNotFound =[['carp','corp'],['turk','torque'],]
 
-var rl = [['rack','lack'],['rad','lad'],['raid','laid'],['rag','lag'],['rake','lake'],['ram','lamb'],['ran','lan'],['rain','lain'],['wrap','lap'],['rat','lat'],['rate','late'],['raw','law'],['ray','lay'],
+var rl = [['rack','lack'],['rad','lad'],['raid','laid'],['rag','lag'],['rake','lake'],['ram','lamb'],['ramp','lamp'],['ran','lan'],['rain','lain'],['wrap','lap'],['rat','lat'],['rate','late'],['raw','law'],['ray','lay'],
 ['reed','lead'],['reef','leaf'],['reek','leak'],['real','leal'],['rend','lend'],['reap','leap'],['rear','leer'],['rest','lest'],['reave','leave'],
 ['rib','lib'],['rick','lick'],['rid','lid'],['rife','life'],['rift','lift'],['rhyme','lime'],['rink','link'],['wrist','list'],['writ','lit'],['right','light'],['river','liver'],
-['rob','lob'],['robe','lobe'],['rock','lock'],['rode','load'],['roan','lone'],['roo','loo'],['rope','lope'],['rot','lot'],['row','low'],
+['rob','lob'],['robe','lobe'],['rock','lock'],['rode','load'],['room','loom'],['roan','lone'],['roo','loo'],['rope','lope'],['rot','lot'],['row','low'],
 ['ruck','luck'],['rude','lewd'],['rug','lug'],['ruse','lose'],['rust','lust'],
-['brand','bland'],['brat','blat'],['breed','bleed'],['breast','blest'],['bring','bling'],['brink','blink'],['bris','bliss'],['bright','blight'],['broke','bloke'],['bro','blow'],['bruise','blues'],['brunt','blunt'],
-['cram','clam'],['crap','clap'],['crave','clave'],['craw','claw'],['crick','click'],['crime','climb'],['crip','clip'],['crock','clock'],['croak','cloak'],['crone','clone'],['cruck','cluck'],['cray','clay'],
-['frack','flack'],['frag','flag'],['frap','flap'],['frat','flat'],['fray','flay'],['freak','fleek'],['fright','flight'],['frock','flock'],['fro','flow'],
+['breach','bleach'],['brand','bland'],['brink','blink'],['brat','blat'],['breed','bleed'],['breast','blest'],['bring','bling'],['brink','blink'],['bris','bliss'],['bright','blight'],['broke','bloke'],['bro','blow'],['bruise','blues'],['brunt','blunt'],
+['crack','clack'],['cram','clam'],['cramp','clamp'],['crap','clap'],['crass','class'],['crave','clave'],['craw','claw'],['crick','click'],['crime','climb'],['crip','clip'],['crock','clock'],['croak','cloak'],['crone','clone'],['crown','clown'],['cruck','cluck'],['cray','clay'],
+['frack','flack'],['frag','flag'],['frap','flap'],['frat','flat'],['fray','flay'],['freak','fleek'],['free','flee'],['fright','flight'],['frock','flock'],['fro','flow'],
 ['grad','glad'],['grade','glade'],['gram','glam'],['grand','gland'],['groom','gloom'],['grow','glow'],['grew','glue'],
-['pray','play'],['splint','sprint'],
+['pray','play'],['prod','plod'],['proud','ploughed'],['spray','splay'],['sprint','splint'],
 ['arrive','alive'],['array','allay']
 ];
 
@@ -78,16 +78,23 @@ var rlFileNotFound =[['raff','laugh'],['red','led'],['rip','lip'],['bread','bled
 
 var nl =[['knack','lack'],['nag','lag'],['nan','lan'],['nap','lap'],['gnash','lash'],['gnat','lat'],['natch','latch'],['knave','lave'],['gnaw','law'],['neigh','lay'],
 ['need','lead'],['neep','leap'],['near','leer'],['ness','less'],['nest','lest'],['net','let'],['never','lever'],['new','loo'],['nexus','lexis'],
-['nib','lib'],['nick','lick'],['knife','life'],['nine','line'],['nip','lip'],['knit','lit'],['night','light'],
+['nib','lib'],['nick','lick'],['niece','lease'],['knife','life'],['nine','line'],['nip','lip'],['knit','lit'],['night','light'],
 ['knob','lob'],['knock','lock'],['node','load'],['nook','look'],['nope','lope'],['not','lot'],['no','low'],
 ['nude','lewd'],['news','lose'],
-['snag','slag'],['snake','slake'],['snap','slap'],['snick','slick'],['snip','slip'],['snit','slit'],['snob','slob'],['snot','slot'],['snow','slow'],['snug','slug']
+['snag','slag'],['snake','slake'],['snap','slap'],['snick','slick'],['snip','slip'],['snit','slit'],['snob','slob'],['snot','slot'],['snow','slow'],['snug','slug'],
+['tannin','talon'],['winnow','willow']
 ];
 
 var nlFileNotFound = [['nug','lug']];
 
-var vw = [['vac','whack'],['van','wan'],['vary','wary'],['veep','weep'],['vest','west'],['vet','wet'],['vine','wine'],['vow','wow']];
+var vw = [['vac','whack'],['van','wan'],['vary','wary'],['veep','weep'],['vest','west'],['vet','wet'],['vile','while'],['vine','wine'],['vow','wow'],
+['vicar','wicker'],['viper','wiper'],
+['rove','row'],['have','how'],['grove','grow'],
+];
 
-var vb = [['vac','back'],['van','ban'],['veep','beep'],['veer','beer'],['vest','best'],['vet','bet'],['vine','bine'],['vow','bow'],['vox','box']];
+var vb = [['vac','back'],['van','ban'],['veep','beep'],['veer','beer'],['very','berry'],['vest','best'],['vet','bet'],['vile','bile'],['vine','bine'],['vow','bow'],['vox','box'],
+['vicar','bicker'],
+['rove','robe'],['live','lib'],['lover','lubber'],['lav','lab']
+];
 
-var vbFileNotFound = [['vat','bat']];
+var vbFileNotFound = [['vat','bat'],['volley','bali']];
