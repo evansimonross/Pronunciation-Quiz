@@ -1,4 +1,5 @@
 var audioSet = false;
+var ipaMode = false;
 var quiz = {
     questionPool: [],
     totalRounds: 10,
@@ -30,20 +31,25 @@ var quiz = {
         var correctWord = choices[correctIndex];
 
         // Print the correct answer to the log. Delete this for final deployment.
-        console.log('The correct answer is ' + correctWord);
+        console.log('The correct answer is ' + correctWord[0] + " [" + correctWord[1] + "]");
 
         // Set up audio file for the correct answer
 
         var player = document.getElementById('player');
-        player.src = "https://s3.amazonaws.com/audio.oxforddictionaries.com/en/mp3/" + correctWord + "_us_1.mp3";
+        player.src = "https://s3.amazonaws.com/audio.oxforddictionaries.com/en/mp3/" + correctWord[0] + "_us_1.mp3";
         player.play();
 
         for (var i = 0; i < choices.length;) {
 
             // Randomize the order for the answer choices, display it, and remove it from the choices array.
             var randomIndex = Math.floor(Math.random() * choices.length);
-            var choice = choices[randomIndex];
+            var choice = choices[randomIndex][0];
             $('#choices').append('<button type="button" id="' + choice + '" class="btn btn-primary btn-lg answerButton">' + choice + '</button>');
+            $('#'+choice).attr('data-word',choice);
+            $('#'+choice).attr('data-ipa',choices[randomIndex][1]);
+            if(ipaMode){
+                $('#'+choice).text(choices[randomIndex][1]);
+            }
             choices.splice(randomIndex, 1);
 
             // Action taken if the button shows the correct answer. Increase correct answers tally and move to next question.
@@ -67,7 +73,7 @@ var quiz = {
                     $('#incorrect').text(quiz.incorrectAnswers);
                     clearInterval(countdownInterval);
                     clearTimeout(countdownTimeout);
-                    var youSaid = $(this).text();
+                    var youSaid = $(this);
                     quiz.toReport.push({ correctWord, youSaid });
                     quiz.nextQuestion();
                 });
@@ -120,21 +126,27 @@ var quiz = {
 
         for (var i = 0; i < quiz.toReport.length; i++) {
             $('#choices').append('<div id="report' + i + '"></div>');
-            var youSaidButton = $('<button type="button" class="btn btn-danger btn-lg reportButton">' + quiz.toReport[i].youSaid + '</button>');
+            var youSaidButton = quiz.toReport[i].youSaid;
             youSaidButton.on('click', function () {
                 if ($(this).text() === "(TIME)") {
 
                 }
                 else {
                     var player = document.getElementById('player');
-                    player.src = "https://s3.amazonaws.com/audio.oxforddictionaries.com/en/mp3/" + $(this).text() + "_us_1.mp3";
+                    player.src = "https://s3.amazonaws.com/audio.oxforddictionaries.com/en/mp3/" + $(this).attr('data-word') + "_us_1.mp3";
                     player.play();
                 }
             });
-            var correctButton = $('<button type="button" class="btn btn-success btn-lg reportButton">' + quiz.toReport[i].correctWord + '</button>');
+            youSaidButton.removeClass('btn-primary answerButton').addClass('btn-danger reportButton');
+            var correctButton = $('<button type="button" class="btn btn-success btn-lg reportButton">' + quiz.toReport[i].correctWord[0] + '</button>');
+            correctButton.attr('data-word',quiz.toReport[i].correctWord[0]);
+            correctButton.attr('data-ipa',quiz.toReport[i].correctWord[1]);
+            if(ipaMode){
+                correctButton.text(quiz.toReport[i].correctWord[1]);
+            }
             correctButton.on('click', function () {
                 var player = document.getElementById('player');
-                player.src = "https://s3.amazonaws.com/audio.oxforddictionaries.com/en/mp3/" + $(this).text() + "_us_1.mp3";
+                player.src = "https://s3.amazonaws.com/audio.oxforddictionaries.com/en/mp3/" + $(this).attr('data-word')  + "_us_1.mp3";
                 player.play();
             })
             $('#report' + i).append(youSaidButton);
@@ -197,25 +209,25 @@ displayVowels = function () {
         quiz.questionPool = highFrontVowels;
     });
 
-    $('#choices').append('<button type="button" id="highBack" class="btn btn-primary btn-lg answerButton">[u] vs. [ʊ]</button>');
-    $('#highBack').on('click', function () {
-        quiz.questionPool = highBackVowels;
-    });
+    // $('#choices').append('<button type="button" id="highBack" class="btn btn-primary btn-lg answerButton">[u] vs. [ʊ]</button>');
+    // $('#highBack').on('click', function () {
+    //     quiz.questionPool = highBackVowels;
+    // });
 
-    $('#choices').append('<button type="button" id="low" class="btn btn-primary btn-lg answerButton">[æ], [ʌ], [ɑ]</button>');
-    $('#low').on('click', function () {
-        quiz.questionPool = lowVowels;
-    })
+    // $('#choices').append('<button type="button" id="low" class="btn btn-primary btn-lg answerButton">[æ], [ʌ], [ɑ]</button>');
+    // $('#low').on('click', function () {
+    //     quiz.questionPool = lowVowels;
+    // })
 
-    $('#choices').append('<button type="button" id="midBack" class="btn btn-primary btn-lg answerButton">[ɔ], [ou], [oɚ]</button>');
-    $('#midBack').on('click', function () {
-        quiz.questionPool = midBackVowels;
-    })
+    // $('#choices').append('<button type="button" id="midBack" class="btn btn-primary btn-lg answerButton">[ɔ], [ou], [oɚ]</button>');
+    // $('#midBack').on('click', function () {
+    //     quiz.questionPool = midBackVowels;
+    // })
 
-    $('#choices').append('<button type="button" id="rColored" class="btn btn-primary btn-lg answerButton">[ɚ], [aɚ], [oɚ]</button>');
-    $('#rColored').on('click', function () {
-        quiz.questionPool = rColoredVowels;
-    })
+    // $('#choices').append('<button type="button" id="rColored" class="btn btn-primary btn-lg answerButton">[ɚ], [aɚ], [oɚ]</button>');
+    // $('#rColored').on('click', function () {
+    //     quiz.questionPool = rColoredVowels;
+    // })
 
     $('#choices').append('<button type="button" id="back" class="btn btn-dark btn-lg menuButton">Main Menu</button>');
     $('#back').on('click', function () {
@@ -233,24 +245,24 @@ displayVowels = function () {
 displayConsonants = function () {
     $('#choices').empty();
 
-    $('#choices').append('<button type="button" id="rl" class="btn btn-primary btn-lg answerButton">[r] vs. [l]</button>');
-    $('#rl').on('click', function () {
-        quiz.questionPool = rl;
-    });
+    // $('#choices').append('<button type="button" id="rl" class="btn btn-primary btn-lg answerButton">[r] vs. [l]</button>');
+    // $('#rl').on('click', function () {
+    //     quiz.questionPool = rl;
+    // });
 
-    $('#choices').append('<button type="button" id="nl" class="btn btn-primary btn-lg answerButton">[n] vs. [l]</button>');
-    $('#nl').on('click', function () {
-        quiz.questionPool = nl;
-    });
-    $('#choices').append('<button type="button" id="vw" class="btn btn-primary btn-lg answerButton">[v] vs. [w]</button>');
-    $('#vw').on('click', function () {
-        quiz.questionPool = vw;
-    });
+    // $('#choices').append('<button type="button" id="nl" class="btn btn-primary btn-lg answerButton">[n] vs. [l]</button>');
+    // $('#nl').on('click', function () {
+    //     quiz.questionPool = nl;
+    // });
+    // $('#choices').append('<button type="button" id="vw" class="btn btn-primary btn-lg answerButton">[v] vs. [w]</button>');
+    // $('#vw').on('click', function () {
+    //     quiz.questionPool = vw;
+    // });
 
-    $('#choices').append('<button type="button" id="vb" class="btn btn-primary btn-lg answerButton">[v] vs. [b]</button>');
-    $('#vb').on('click', function () {
-        quiz.questionPool = vb;
-    });
+    // $('#choices').append('<button type="button" id="vb" class="btn btn-primary btn-lg answerButton">[v] vs. [b]</button>');
+    // $('#vb').on('click', function () {
+    //     quiz.questionPool = vb;
+    // });
 
     $('#choices').append('<button type="button" id="back" class="btn btn-dark btn-lg menuButton">Main Menu</button>');
     $('#back').on('click', function () {

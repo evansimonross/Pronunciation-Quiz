@@ -22,3 +22,14 @@ body{
 .card{
     margin-top: 15px;
 }
+
+.toggle{
+    display:block;
+    margin: 25px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.toggle-handle{
+    background-color: white;
+}

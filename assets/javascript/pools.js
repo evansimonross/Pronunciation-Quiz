@@ -1,4 +1,7 @@
-var highFrontVowels = [['bleep', 'blip'], ['cheap', 'chip'], ['creep', 'crip'], ['heap', 'hip'], ['jeep', 'gyp'], ['keep', 'kip'], ['leap', 'lip'], ['neep', 'nip'], ['peep', 'pip'], ['seep', 'sip'], ['sleep', 'slip'], ['sheep', 'ship'],
+var highFrontVowels = [[['bleep','blip'],['blip','blɪp']],[['cheap','tʃip'],['chip','tʃɪp']],[['creep','krip'],['crip','krɪp']],[['heap','hip'],['hip','hɪp']]
+];
+
+var highFrontVowelsOld = [['bleep', 'blip'], ['cheap', 'chip'], ['creep', 'crip'], ['heap', 'hip'], ['jeep', 'gyp'], ['keep', 'kip'], ['leap', 'lip'], ['neep', 'nip'], ['peep', 'pip'], ['seep', 'sip'], ['sleep', 'slip'], ['sheep', 'ship'],
 ['beat', 'bit'], ['cheat', 'chit'], ['feet', 'fit'], ['fleet', 'flit'], ['heat', 'hit'], ['meat', 'mitt'], ['neat', 'knit'], ['peat', 'pit'], ['seat', 'sit'], ['sleet', 'slit'], ['skeet', 'skit'], ['teat', 'tit'], ['wheat', 'wit'],
 ['cheek', 'chick'], ['creek', 'crick'], ['eke', 'ick'], ['fleek', 'flick'], ['keek', 'kick'], ['leak', 'lick'], ['peek', 'pick'], ['reek', 'rick'], ['seek', 'sick'], ['sleek', 'slick'], ['squeak', 'squick'], ['teak', 'tick'], ['treacle', 'trickle'], ['weak', 'wick'],
 ['bead', 'bid'], ['deed', 'did'], ['feed', 'fid'], ['heed', 'hid'], ['keyed', 'kid'], ['lead', 'lid'], ['mead', 'mid'], ['meaty', 'midi'], ['reed', 'rid'], ['wheedle', 'whittle'],
