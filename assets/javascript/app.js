@@ -31,7 +31,18 @@ var quiz = {
         var correctWord = choices[correctIndex];
 
         // Print the correct answer to the log. Delete this for final deployment.
-        console.log('The correct answer is ' + correctWord[0] + " [" + correctWord[1] + "]");
+        var consoleMessage = 'The correct answer is ' + correctWord[0];
+        if(correctWord.length>1){
+            consoleMessage += " [" + correctWord[1] + "]";
+        }
+        else{
+            if(ipaMode){
+                alert("IPA Mode is not yet supported for this data set.");
+                $('#ipaToggle').bootstrapToggle('off');
+                ipaMode = false;
+            }
+        }
+        console.log(consoleMessage);
 
         // Set up audio file for the correct answer
 
@@ -45,10 +56,12 @@ var quiz = {
             var randomIndex = Math.floor(Math.random() * choices.length);
             var choice = choices[randomIndex][0];
             $('#choices').append('<button type="button" id="' + choice + '" class="btn btn-primary btn-lg answerButton">' + choice + '</button>');
-            $('#'+choice).attr('data-word',choice);
-            $('#'+choice).attr('data-ipa',choices[randomIndex][1]);
-            if(ipaMode){
-                $('#'+choice).text(choices[randomIndex][1]);
+            $('#' + choice).attr('data-word', choice);
+            if (choices[randomIndex].length > 1) {
+                $('#' + choice).attr('data-ipa', choices[randomIndex][1]);
+                if (ipaMode) {
+                    $('#' + choice).text(choices[randomIndex][1]);
+                }
             }
             choices.splice(randomIndex, 1);
 
@@ -139,14 +152,16 @@ var quiz = {
             });
             youSaidButton.removeClass('btn-primary answerButton').addClass('btn-danger reportButton');
             var correctButton = $('<button type="button" class="btn btn-success btn-lg reportButton">' + quiz.toReport[i].correctWord[0] + '</button>');
-            correctButton.attr('data-word',quiz.toReport[i].correctWord[0]);
-            correctButton.attr('data-ipa',quiz.toReport[i].correctWord[1]);
-            if(ipaMode){
-                correctButton.text(quiz.toReport[i].correctWord[1]);
+            correctButton.attr('data-word', quiz.toReport[i].correctWord[0]);
+            if (quiz.toReport[i].correctWord.length > 1) {
+                correctButton.attr('data-ipa', quiz.toReport[i].correctWord[1]);
+                if (ipaMode) {
+                    correctButton.text(quiz.toReport[i].correctWord[1]);
+                }
             }
             correctButton.on('click', function () {
                 var player = document.getElementById('player');
-                player.src = "https://s3.amazonaws.com/audio.oxforddictionaries.com/en/mp3/" + $(this).attr('data-word')  + "_us_1.mp3";
+                player.src = "https://s3.amazonaws.com/audio.oxforddictionaries.com/en/mp3/" + $(this).attr('data-word') + "_us_1.mp3";
                 player.play();
             })
             $('#report' + i).append(youSaidButton);
@@ -173,7 +188,7 @@ var quiz = {
             var questionSet = quiz.questionPool[i];
             for (var j = 0; j < questionSet.length; j++) {
                 var audio = $('audio');
-                audio.attr('src', "https://s3.amazonaws.com/audio.oxforddictionaries.com/en/mp3/" + questionSet[j] + "_us_1.mp3");
+                audio.attr('src', "https://s3.amazonaws.com/audio.oxforddictionaries.com/en/mp3/" + questionSet[j][0] + "_us_1.mp3");
                 audio[0].addEventListener('loadedmetadata', function () {
                     // An error will be thrown to the console if the audio file does not exist and the metadata cannot load.
                 });
@@ -209,25 +224,25 @@ displayVowels = function () {
         quiz.questionPool = highFrontVowels;
     });
 
-    // $('#choices').append('<button type="button" id="highBack" class="btn btn-primary btn-lg answerButton">[u] vs. [ʊ]</button>');
-    // $('#highBack').on('click', function () {
-    //     quiz.questionPool = highBackVowels;
-    // });
+    $('#choices').append('<button type="button" id="highBack" class="btn btn-primary btn-lg answerButton">[u] vs. [ʊ]</button>');
+    $('#highBack').on('click', function () {
+        quiz.questionPool = highBackVowels;
+    });
 
-    // $('#choices').append('<button type="button" id="low" class="btn btn-primary btn-lg answerButton">[æ], [ʌ], [ɑ]</button>');
-    // $('#low').on('click', function () {
-    //     quiz.questionPool = lowVowels;
-    // })
+    $('#choices').append('<button type="button" id="low" class="btn btn-primary btn-lg answerButton">[æ], [ʌ], [ɑ]</button>');
+    $('#low').on('click', function () {
+        quiz.questionPool = lowVowels;
+    })
 
-    // $('#choices').append('<button type="button" id="midBack" class="btn btn-primary btn-lg answerButton">[ɔ], [ou], [oɚ]</button>');
-    // $('#midBack').on('click', function () {
-    //     quiz.questionPool = midBackVowels;
-    // })
+    $('#choices').append('<button type="button" id="midBack" class="btn btn-primary btn-lg answerButton">[ɔ], [ou], [oɚ]</button>');
+    $('#midBack').on('click', function () {
+        quiz.questionPool = midBackVowels;
+    })
 
-    // $('#choices').append('<button type="button" id="rColored" class="btn btn-primary btn-lg answerButton">[ɚ], [aɚ], [oɚ]</button>');
-    // $('#rColored').on('click', function () {
-    //     quiz.questionPool = rColoredVowels;
-    // })
+    $('#choices').append('<button type="button" id="rColored" class="btn btn-primary btn-lg answerButton">[ɚ], [aɚ], [oɚ]</button>');
+    $('#rColored').on('click', function () {
+        quiz.questionPool = rColoredVowels;
+    })
 
     $('#choices').append('<button type="button" id="back" class="btn btn-dark btn-lg menuButton">Main Menu</button>');
     $('#back').on('click', function () {
@@ -303,7 +318,7 @@ displayMainMenu = function () {
 // Sets click listeners for the options buttons at the start
 $(document).ready(function () {
     displayMainMenu();
-    $('#ipaToggle').change(function(){
+    $('#ipaToggle').change(function () {
         ipaMode = !ipaMode;
     });
 });
