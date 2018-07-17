@@ -1,18 +1,16 @@
 var highFrontVowels = [[['bleep','blip'],['blip','blɪp']],[['cheap','tʃip'],['chip','tʃɪp']],[['creep','krip'],['crip','krɪp']],[['heap','hip'],['hip','hɪp']]
-];
-
-var highFrontVowelsOld = [['bleep', 'blip'], ['cheap', 'chip'], ['creep', 'crip'], ['heap', 'hip'], ['jeep', 'gyp'], ['keep', 'kip'], ['leap', 'lip'], ['neep', 'nip'], ['peep', 'pip'], ['seep', 'sip'], ['sleep', 'slip'], ['sheep', 'ship'],
-['beat', 'bit'], ['cheat', 'chit'], ['feet', 'fit'], ['fleet', 'flit'], ['heat', 'hit'], ['meat', 'mitt'], ['neat', 'knit'], ['peat', 'pit'], ['seat', 'sit'], ['sleet', 'slit'], ['skeet', 'skit'], ['teat', 'tit'], ['wheat', 'wit'],
-['cheek', 'chick'], ['creek', 'crick'], ['eke', 'ick'], ['fleek', 'flick'], ['keek', 'kick'], ['leak', 'lick'], ['peek', 'pick'], ['reek', 'rick'], ['seek', 'sick'], ['sleek', 'slick'], ['squeak', 'squick'], ['teak', 'tick'], ['treacle', 'trickle'], ['weak', 'wick'],
-['bead', 'bid'], ['deed', 'did'], ['feed', 'fid'], ['heed', 'hid'], ['keyed', 'kid'], ['lead', 'lid'], ['mead', 'mid'], ['meaty', 'midi'], ['reed', 'rid'], ['wheedle', 'whittle'],
-['bream', 'brim'], ['deem', 'dim'], ['meme', 'mim'], ['ream', 'rim'], ['scheme', 'skim'], ['seem', 'sim'],
-['bean', 'been'], ['dean', 'din'], ['gene', 'gin'], ['green', 'grin'], ['keen', 'kin'], ['mean', 'min'], ['peen', 'pin'], ['queen', 'quin'], ['sheen', 'shin'], ['teen', 'tin'], ['wean', 'win'],
-['deal', 'dill'], ['eel', 'ill'], ['feel', 'fill'], ['heal', 'hill'], ['keel', 'kill'], ['meal', 'mill'], ['peel', 'pill'], ['seal', 'sill'], ['squeal', 'squill'], ['steal', 'still'], ['teal', 'till'], ['wheel', 'will'],
-['cease', 'sis'], ['east', 'ist'], ['feast', 'fist'], ['least', 'list'], ['peace', 'piss'],
-['wheeze', 'whiz'],
-['beach', 'bitch'], ['each', 'itch'], ['peach', 'pitch'],
-['leafed', 'lift'], ['reef', 'riff'],
-['leave', 'live']
+[['jeep','dʒip'], ['gyp','dʒɪp']], [['keep','kip'], ['kip','kɪp']], [['leap','lip'], ['lip','lɪp']], [['neep','nip'], ['nip','nɪp']], [['peep','pip'], ['pip','pɪp']], [['seep','sip'], ['sip','sɪp']], [['sleep','slip'], ['slip','slɪp']], [['sheep','ʃip'], ['ship','ʃɪp']],
+[['beat','bit'], ['bit','bɪt']], [['cheat','tʃit'], ['chit','tʃɪt']], [['feet','fit'], ['fit','fɪt']], [['fleet','flit'], ['flit','flɪt']], [['heat','hit'], ['hit','hɪt']], [['meat','mit'], ['mitt','mɪt']], [['neat','nit'], ['knit','nɪt']], [['peat','pit'], ['pit','pɪt']], [['seat','sit'], ['sit','sɪt']], [['sleet','slit'], ['slit','slɪt']], [['skeet','skit'], ['skit','skɪt']], [['teat','tit'], ['tit','tɪt']], [['wheat','wit'], ['wit','wɪt']],
+[['cheek','tʃik'], ['chick','tʃɪk']], [['creek','krik'], ['crick','krɪk']], [['eke','ik'], ['ick','ɪk']], [['fleek','flik'], ['flick','flɪk']], [['keek','kik'], ['kick','kɪk']], [['leak','lik'], ['lick','lɪk']], [['peek','pik'], ['pick','pɪk']], [['reek','rik'], ['rick','rɪk']], [['seek','sik'], ['sick','sɪk']], [['sleek','slik'], ['slick','slɪk']], [['squeak','skwik'], ['squick','skwɪk']], [['teak','tik'], ['tick','tɪk']], [['treacle','trikəl'], ['trickle','trɪkəl']], [['weak','wik'], ['wick','wɪk']],
+[['bead','bid'], ['bid','bɪd']], [['deed','did'], ['did','dɪd']], [['feed','fid'], ['fid','fɪd']], [['heed','hid'], ['hid','hɪd']], [['keyed','kid'], ['kid','kɪd']], [['lead','lid'], ['lid','lɪd']], [['mead','mid'], ['mid','mɪd']], [['meaty','miɾi'], ['midi','mɪɾi']], [['reed','rid'], ['rid','rɪd']], [['wheedle','wiɾəl'], ['whittle','wɪɾəl']],
+[['bream','brim'], ['brim','brɪm']], [['deem','dim'], ['dim','dɪm']], [['meme','mim'], ['mim','mɪm']], [['ream','rim'], ['rim','rɪm']], [['scheme','skim'], ['skim','skɪm']], [['seem','sim'], ['sim','sɪm']],
+[['bean','bin'], ['been','bɪn']], [['dean','din'], ['din','dɪn']], [['gene','dʒin'], ['gin','dʒɪn']], [['green','grin'], ['grin','grɪn']], [['keen','kin'], ['kin','kɪn']], [['mean','min'], ['min','mɪn']], [['peen','pin'], ['pin','pɪn']], [['queen','kwin'], ['quin','kwɪn']], [['sheen','ʃin'], ['shin','ʃɪn']], [['teen','tin'], ['tin','tɪn']], [['wean','win'], ['win','wɪn']],
+[['deal','dil'], ['dill','dɪl']], [['eel','il'], ['ill','ɪl']], [['feel','fil'], ['fill','fɪl']], [['heal','hil'], ['hill','hɪl']], [['keel','kil'], ['kill','kɪl']], [['meal','mil'], ['mill','mɪl']], [['peel','pil'], ['pill','pɪl']], [['seal','sil'], ['sill','sɪl']], [['squeal','skwil'], ['squill','skwɪl']], [['steal','stil'], ['still','stɪl']], [['teal','til'], ['till','tɪl']], [['wheel','wil'], ['will','wɪl']],
+[['cease','sis'], ['sis','sɪs']], [['east','ist'], ['ist','ɪst']], [['feast','fist'], ['fist','fɪst']], [['least','list'], ['list','lɪst']], [['peace','pis'], ['piss','pɪs']],
+[['wheeze','wiz'], ['whiz','wɪz']],
+[['beach','bitʃ'], ['bitch','bɪtʃ']], [['each','itʃ'], ['itch','ɪtʃ']], [['peach','pitʃ'], ['pitch','pɪtʃ']],
+[['leafed','lift'], ['lift','lɪft']], [['reef','rif'], ['riff','rɪf']],
+[['leave','liv'], ['live','lɪv']]
 ];
 
 var highFrontVowelsFileNotFound = [['caesar','scissor'],['deep', 'dip'], ['reap', 'rip'], ['streep', 'strip'], ['eat', 'it'], ['leet', 'lit'], ['seen', 'sin'], ['wield', 'willed'], ['leech', 'lich']];

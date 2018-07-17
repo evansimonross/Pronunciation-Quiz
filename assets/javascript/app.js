@@ -303,4 +303,7 @@ displayMainMenu = function () {
 // Sets click listeners for the options buttons at the start
 $(document).ready(function () {
     displayMainMenu();
+    $('#ipaToggle').change(function(){
+        ipaMode = !ipaMode;
+    });
 });
