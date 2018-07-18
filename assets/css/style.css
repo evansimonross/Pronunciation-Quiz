@@ -18,6 +18,48 @@ body{
     width: 35%;
 }
 
+@media screen and (max-width: 992px) {
+    .answerButton{
+        width: 80%;
+    }
+    
+    .menuButton{
+        width: 80%;
+    }
+    
+    .reportButton{
+        width: 45%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .answerButton{
+        width: 50%;
+    }
+    
+    .menuButton{
+        width: 50%;
+    }
+    
+    .reportButton{
+        width: 35%;
+    }
+}
+
+@media screen and (max-width: 574px) {
+    .answerButton{
+        width: 80%;
+    }
+    
+    .menuButton{
+        width: 80%;
+    }
+    
+    .reportButton{
+        width: 45%;
+    }
+}
+
 .card{
     margin-top: 15px;
 }
