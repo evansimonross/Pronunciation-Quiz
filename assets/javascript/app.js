@@ -32,11 +32,11 @@ var quiz = {
 
         // Print the correct answer to the log. Delete this for final deployment.
         var consoleMessage = 'The correct answer is ' + correctWord[0];
-        if(correctWord.length>1){
+        if (correctWord.length > 1) {
             consoleMessage += " [" + correctWord[1] + "]";
         }
-        else{
-            if(ipaMode){
+        else {
+            if (ipaMode) {
                 alert("IPA Mode is not yet supported for this data set.");
                 $('#ipaToggle').bootstrapToggle('off');
                 ipaMode = false;
@@ -219,27 +219,27 @@ clearData = function () {
 displayVowels = function () {
     $('#choices').empty();
 
-    $('#choices').append('<button type="button" id="highFront" class="btn btn-primary btn-lg answerButton">[i] vs. [ɪ]</button>');
+    $('#choices').append('<button type="button" id="highFront" class="btn btn-primary btn-lg answerButton" data-word="High Front Vowels" data-ipa="[i] vs. [ɪ]"></button>');
     $('#highFront').on('click', function () {
         quiz.questionPool = highFrontVowels;
     });
 
-    $('#choices').append('<button type="button" id="highBack" class="btn btn-primary btn-lg answerButton">[u] vs. [ʊ]</button>');
+    $('#choices').append('<button type="button" id="highBack" class="btn btn-primary btn-lg answerButton" data-word="High Back Vowels" data-ipa="[u] vs. [ʊ]"></button>');
     $('#highBack').on('click', function () {
         quiz.questionPool = highBackVowels;
     });
 
-    $('#choices').append('<button type="button" id="low" class="btn btn-primary btn-lg answerButton">[æ], [ʌ], [ɑ]</button>');
+    $('#choices').append('<button type="button" id="low" class="btn btn-primary btn-lg answerButton" data-word="Low Vowels" data-ipa="[æ], [ʌ], [ɑ]"></button>');
     $('#low').on('click', function () {
         quiz.questionPool = lowVowels;
     })
 
-    $('#choices').append('<button type="button" id="midBack" class="btn btn-primary btn-lg answerButton">[ɔ], [ou], [oɚ]</button>');
+    $('#choices').append('<button type="button" id="midBack" class="btn btn-primary btn-lg answerButton" data-word="Mid Back Vowels" data-ipa="[ɔ], [ou], [oɚ]"></button>');
     $('#midBack').on('click', function () {
         quiz.questionPool = midBackVowels;
     })
 
-    $('#choices').append('<button type="button" id="rColored" class="btn btn-primary btn-lg answerButton">[ɚ], [aɚ], [oɚ]</button>');
+    $('#choices').append('<button type="button" id="rColored" class="btn btn-primary btn-lg answerButton" data-word="R-Colored Vowels" data-ipa="[ɚ], [aɚ], [oɚ]"></button>');
     $('#rColored').on('click', function () {
         quiz.questionPool = rColoredVowels;
     })
@@ -248,6 +248,16 @@ displayVowels = function () {
     $('#back').on('click', function () {
         displayMainMenu();
     })
+
+    // Set the text
+    $('.answerButton').each(function (element) {
+        if (ipaMode) {
+            $(this).text($(this).attr('data-ipa'));
+        }
+        else {
+            $(this).text($(this).attr('data-word'));
+        }
+    });
 
     // Set this as our final function to check if there are any erroneous file names.
     //$('.answerButton').on('click',quiz.checkAudioFiles);
@@ -260,22 +270,22 @@ displayVowels = function () {
 displayConsonants = function () {
     $('#choices').empty();
 
-    $('#choices').append('<button type="button" id="rl" class="btn btn-primary btn-lg answerButton">[r] vs. [l]</button>');
+    $('#choices').append('<button type="button" id="rl" class="btn btn-primary btn-lg answerButton" data-word="R and L" data-ipa="[r] vs. [l]"></button>');
     $('#rl').on('click', function () {
         quiz.questionPool = rl;
     });
 
-    $('#choices').append('<button type="button" id="nl" class="btn btn-primary btn-lg answerButton">[n] vs. [l]</button>');
+    $('#choices').append('<button type="button" id="nl" class="btn btn-primary btn-lg answerButton" data-word="N and L" data-ipa="[n] vs. [l]"></button>');
     $('#nl').on('click', function () {
         quiz.questionPool = nl;
     });
 
-    $('#choices').append('<button type="button" id="vw" class="btn btn-primary btn-lg answerButton">[v] vs. [w]</button>');
+    $('#choices').append('<button type="button" id="vw" class="btn btn-primary btn-lg answerButton" data-word="V and W" data-ipa="[v] vs. [w]"></button>');
     $('#vw').on('click', function () {
         quiz.questionPool = vw;
     });
 
-    $('#choices').append('<button type="button" id="vb" class="btn btn-primary btn-lg answerButton">[v] vs. [b]</button>');
+    $('#choices').append('<button type="button" id="vb" class="btn btn-primary btn-lg answerButton" data-word="V and B" data-ipa="[v] vs. [b]"></button>');
     $('#vb').on('click', function () {
         quiz.questionPool = vb;
     });
@@ -284,6 +294,16 @@ displayConsonants = function () {
     $('#back').on('click', function () {
         displayMainMenu();
     })
+
+    // Set the text
+    $('.answerButton').each(function () {
+        if (ipaMode) {
+            $(this).text($(this).attr('data-ipa'));
+        }
+        else {
+            $(this).text($(this).attr('data-word'));
+        }
+    });
 
     // Set this as our final function to check if there are any erroneous file names.
     //$('.answerButton').on('click',quiz.checkAudioFiles);
@@ -321,5 +341,13 @@ $(document).ready(function () {
     displayMainMenu();
     $('#ipaToggle').change(function () {
         ipaMode = !ipaMode;
+        $('.answerButton').each(function () {
+            if(ipaMode){
+                $(this).text($(this).attr('data-ipa'));
+            }
+            else{
+                $(this).text($(this).attr('data-word'));
+            }
+        });
     });
 });
