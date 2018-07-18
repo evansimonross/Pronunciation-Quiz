@@ -36,68 +36,68 @@ var lowVowels = [[['app','æp'], ['up','ʌp']], [['cup','kʌp'], ['cop','kɑp']]
 
 var lowVowelsFileNotFound = [['cap', 'cup', 'cop'], ['sat', 'sot'], ['shat', 'shut', 'shot'], ['tack', 'tuck', 'tock'], ['jab', 'job'], ['sub', 'sob'], ['cad', 'cud', 'cod'], ['mad', 'mud', 'mod'], ['bag', 'bug', 'bog'], ['am', 'um'], ['numb', 'nom'], ['can', 'con'], ['stand', 'stunned']];
 
-var midBackVowels = [[['awe'], ['owe'], ['or']], [['caw'], ['core']], [['craw'], ['crow']], [['daw'], ['door']], [['draw'], ['drawer']], [['foe'], ['four']], [['flaw'], ['flow'], ['floor']], [['gnaw'], ['no'], ['nor']], [['go'], ['gore']], [['haw'], ['hoe'], ['whore']], [['jaw'], ['joe']], [['law'], ['low'], ['lore']], [['maw'], ['mow'], ['more']], [['paw'], ['pour']], [['raw'], ['row'], ['roar']], [['saw'], ['sew'], ['soar']], [['shaw'], ['show'], ['shore']], [['slaw'], ['slow']], [['stow'], ['store']], [['straw'], ['strow']], [['toe'], ['tour']], [['woe'], ['war']], [['yo'], ['yore']],
-[['bought'], ['boat']], [['caught'], ['coat'], ['court']], [['fought'], ['fort']],
-[['awk'], ['oak'], ['orc']], [['chalk'], ['choke']], [['stalk'], ['stoke'], ['stork']], [['talk'], ['toke']], [['walk'], ['woke']],
-[['bawd'], ['bode'], ['board']], [['code'], ['cord']], [['gaud'], ['goad']], [['load'], ['lord']], [['woad'], ['ward']],
-[['comb'], ['corm']], [['dome'], ['dorm']], [['foam'], ['form']], [['gnome'], ['norm']],
-[['bone'], ['born']], [['moan'], ['mourn']], [['pawn'], ['porn']], [['sawn'], ['sewn']], [['tone'], ['torn']],
-[['poach'], ['porch']],
-[['auth'], ['oath']]
+var midBackVowels = [[['awe','ɔ'], ['owe','ou'], ['or','oɚ']], [['caw','kɔ'], ['core','koɚ']], [['craw','krɔ'], ['crow','krou']], [['daw','dɔ'], ['door','doɚ']], [['draw','drɔ'], ['drawer','droɚ']], [['foe','fou'], ['four','foɚr']], [['flaw','flɔ'], ['flow','flou'], ['floor','floɚr']], [['gnaw','nɔ'], ['no','nou'], ['nor','noɚr']], [['go','gou'], ['gore','goɚ']], [['haw','hɔ'], ['hoe','hou'], ['whore','hoɚ']], [['jaw','dʒɔ'], ['joe','dʒou']], [['law','lɔ'], ['low','lou'], ['lore','loɚ']], [['maw','mɔ'], ['mow','mou'], ['more','moɚ']], [['paw','pɔ'], ['pour','poɚ']], [['raw','rɔ'], ['row','rou'], ['roar','roɚ']], [['saw','sɔ'], ['sew','sou'], ['soar','soɚ']], [['shaw','ʃɔ'], ['show','ʃou'], ['shore','ʃoɚ']], [['slaw','slɔ'], ['slow','slou']], [['stow','stou'], ['store','stoɚ']], [['straw','strɔ'], ['strow','strou']], [['toe','tou'], ['tour','toɚ']], [['woe','wou'], ['war','woɚ']], [['yo','jou'], ['yore','joɚ']],
+[['bought','bɔt'], ['boat','bout']], [['caught','kɔt'], ['coat','kout'], ['court','koɚt']], [['fought','fɔt'], ['fort','foɚt']],
+[['awk','ɔk'], ['oak','ouk'], ['orc','oɚk']], [['chalk','tʃɔk'], ['choke','tʃouk']], [['stalk','stɔk'], ['stoke','stouk'], ['stork','stoɚk']], [['talk','tɔk'], ['toke','touk']], [['walk','wɔk'], ['woke','wouk']],
+[['bawd','bɔd'], ['bode','boud'], ['board','boɚd']], [['code','koud'], ['cord','koɚd']], [['gaud','gɔd'], ['goad','goud']], [['load','loud'], ['lord','loɚd']], [['woad','woud'], ['ward','woɚd']],
+[['comb','koum'], ['corm','koɚm']], [['dome','doum'], ['dorm','doɚm']], [['foam','foum'], ['form','foɚm']], [['gnome','noum'], ['norm','noɚm']],
+[['bone','boun'], ['born','boɚn']], [['moan','moun'], ['mourn','moɚn']], [['pawn','pɔn'], ['porn','poɚn']], [['sawn','sɔn'], ['sewn','soun']], [['tone','toun'], ['torn','toɚn']],
+[['poach','poutʃ'], ['porch','poɚtʃ']],
+[['auth','ɔθ'], ['oath','ouθ']]
 ];
 
 var midBackVowelsFileNotFound = [['daw', 'doe', 'door'], ['gaud', 'goad', 'gourd'], ['cone', 'corn'],]
 
-var rColoredVowels = [[['burr'], ['bar'], ['bore']], [['chirr'], ['char'], ['chore']], [['cur'], ['car'], ['core']], [['fur'], ['far'], ['for']], [['mar'], ['more']], [['purr'], ['par'], ['pour']], [['sir'], ['soar']], [['stir'], ['star'], ['store']], [['sure'], ['shore']], [['tar'], ['tore']],
-[['curt'], ['cart'], ['court']], [['dirt'], ['dart']], [['hurt'], ['heart']], [['pert'], ['part'], ['port']], [['shirt'], ['short']], [['tart'], ['tort']], [['wert'], ['wart']],
-[['irk'], ['orc']], [['dark'], ['dork']], [['kirk'], ['cork']], [['lurk'], ['lark']], [['murk'], ['mark']], [['perk'], ['park'], ['pork']], [['quirk'], ['quark']], [['shirk'], ['shark']],
-[['bird'], ['bard'], ['board']], [['curd'], ['card'], ['cord']], [['gird'], ['guard']], [['herd'], ['hard'], ['hoard']], [['lard'], ['lord']], [['sard'], ['sword']], [['word'], ['ward']],
-[['erg'], ['org']],
-[['derm'], ['dorm']], [['firm'], ['farm'], ['form']], [['perm'], ['parm']], [['worm'], ['warm']],
-[['burn'], ['barn'], ['born']], [['learn'], ['lorn']], [['skarn'], ['scorn']], [['turn'], ['torn']],
-[['curse'], ['course']], [['first'], ['forced']], [['hearse'], ['horse']], [['nurse'], ['norse']], [['purse'], ['parse']],
-[['lurch'], ['larch']], [['merch'], ['march']], [['perch'], ['parch'], ['porch']],
-[['girth'], ['garth']]
+var rColoredVowels = [[['burr','bɚ'], ['bar','baɚ'], ['bore','boɚ']], [['chirr','tʃɚ'], ['char','tʃaɚ'], ['chore','tʃoɚ']], [['cur','kɚ'], ['car','kaɚ'], ['core','koɚ']], [['fur','fɚ'], ['far','faɚ'], ['four','foɚ']], [['mar','maɚ'], ['more','moɚ']], [['purr','pɚ'], ['par','paɚ'], ['pour','poɚ']], [['sir','sɚ'], ['soar','soɚ']], [['stir','stɚ'], ['star','staɚ'], ['store','stoɚ']], [['sure','ʃɚ'], ['shore','ʃoɚ']], [['tar','taɚ'], ['tore','toɚ']],
+[['curt','kɚt'], ['cart','kaɚt'], ['court','koɚt']], [['dirt','dɚt'], ['dart','daɚt']], [['hurt','hɚt'], ['heart','haɚt']], [['pert','pɚt'], ['part','paɚt'], ['port','poɚt']], [['shirt','ʃɚt'], ['short','ʃoɚt']], [['tart','taɚt'], ['tort','toɚt']], [['wert','wɚt'], ['wart','woɚt']],
+[['irk','ɚk'], ['ark','aɚk'],['orc','oɚk']], [['dirk','dɚk'],['dark','daɚk'], ['dork','doɚk']], [['kirk','kɚk'], ['cork','koɚk']], [['lurk','lɚk'], ['lark','laɚk']], [['murk','mɚk'], ['mark','maɚk']], [['perk','pɚk'], ['park','paɚk'], ['pork','poɚk']], [['quirk','kwɚk'], ['quark','kwaɚk']], [['shirk','ʃɚk'], ['shark','ʃaɚk']],
+[['bird','bɚd'], ['bard','baɚd'], ['board','boɚd']], [['curd','kɚd'], ['card','kaɚd'], ['cord','koɚd']], [['gird','gɚd'], ['guard','gaɚd']], [['herd','hɚd'], ['hard','haɚd'], ['hoard','hoɚd']], [['lard','laɚd'], ['lord','loɚd']], [['sard','saɚd'], ['sword','soɚd']], [['word','wɚd'], ['ward','woɚd']],
+[['erg','ɚg'], ['org','oɚg']],
+[['derm','dɚm'], ['dorm','doɚm']], [['firm','fɚm'], ['farm','faɚm'], ['form','foɚm']], [['perm','pɚm'], ['parm','paɚm']], [['worm','wɚm'], ['warm','woɚm']],
+[['burn','bɚn'], ['barn','baɚn'], ['born','boɚn']], [['learn','lɚn'], ['lorn','loɚn']], [['skarn','skaɚn'], ['scorn','skoɚn']], [['turn','tɚn'], ['torn','toɚn']],
+[['curse','kɚs'], ['course','koɚs']], [['first','fɚst'], ['forced','foɚst']], [['hearse','hɚs'], ['horse','hoɚs']], [['nurse','nɚs'], ['norse','noɚs']], [['purse','pɚs'], ['parse','paɚs']],
+[['lurch','lɚtʃ'], ['larch','laɚtʃ']], [['merch','mɚtʃ'], ['march','maɚtʃ']], [['perch','pɚtʃ'], ['parch','paɚtʃ'], ['porch','poɚtʃ']],
+[['girth','gɚθ'], ['garth','gaɚθ']]
 ];
 
 var rColoredVowelsFileNotFound = [['carp', 'corp'], ['turk', 'torque']];
 
 var schwaOrNothing = [[['prayed'],['parade']],[['scum'],['succumb']],[['prana'],['piranha']]];
 
-var rl = [[['rack'], ['lack']], [['rad'], ['lad']], [['raid'], ['laid']], [['rag'], ['lag']], [['rake'], ['lake']], [['ram'], ['lamb']], [['ramp'], ['lamp']], [['ran'], ['lan']], [['rain'], ['lain']], [['wrap'], ['lap']], [['rat'], ['lat']], [['rate'], ['late']], [['raw'], ['law']], [['ray'], ['lay']],
-[['reed'], ['lead']], [['reef'], ['leaf']], [['reek'], ['leak']], [['real'], ['leal']], [['rend'], ['lend']], [['reap'], ['leap']], [['rear'], ['leer']], [['rest'], ['lest']], [['reave'], ['leave']],
-[['rib'], ['lib']], [['rick'], ['lick']], [['rid'], ['lid']], [['rife'], ['life']], [['rift'], ['lift']], [['rhyme'], ['lime']], [['rink'], ['link']], [['wrist'], ['list']], [['writ'], ['lit']], [['right'], ['light']], [['river'], ['liver']],
-[['rob'], ['lob']], [['robe'], ['lobe']], [['rock'], ['lock']], [['rode'], ['load']], [['room'], ['loom']], [['roan'], ['lone']], [['roo'], ['loo']], [['rope'], ['lope']], [['rot'], ['lot']], [['row'], ['low']],
-[['ruck'], ['luck']], [['rude'], ['lewd']], [['rug'], ['lug']], [['ruse'], ['lose']], [['rust'], ['lust']],
-[['breach'], ['bleach']], [['brand'], ['bland']], [['brink'], ['blink']], [['brat'], ['blat']], [['breed'], ['bleed']], [['breast'], ['blest']], [['bring'], ['bling']], [['brink'], ['blink']], [['bris'], ['bliss']], [['bright'], ['blight']], [['broke'], ['bloke']], [['bro'], ['blow']], [['bruise'], ['blues']], [['brunt'], ['blunt']],
-[['crack'], ['clack']], [['cram'], ['clam']], [['cramp'], ['clamp']], [['crap'], ['clap']], [['crass'], ['class']], [['crave'], ['clave']], [['craw'], ['claw']], [['crick'], ['click']], [['crime'], ['climb']], [['crip'], ['clip']], [['crock'], ['clock']], [['croak'], ['cloak']], [['crone'], ['clone']], [['crown'], ['clown']], [['cruck'], ['cluck']], [['cray'], ['clay']],
-[['frack'], ['flack']], [['frag'], ['flag']], [['frap'], ['flap']], [['frat'], ['flat']], [['fray'], ['flay']], [['freak'], ['fleek']], [['free'], ['flee']], [['fright'], ['flight']], [['frock'], ['flock']], [['fro'], ['flow']],
-[['grad'], ['glad']], [['grade'], ['glade']], [['gram'], ['glam']], [['grand'], ['gland']], [['groom'], ['gloom']], [['grow'], ['glow']], [['grew'], ['glue']],
-[['pray'], ['play']], [['prod'], ['plod']], [['proud'], ['ploughed']], [['spray'], ['splay']], [['sprint'], ['splint']],
-[['arrive'], ['alive']], [['array'], ['allay']]
+var rl = [[['rack','ræk'], ['lack','læk']], [['rad','ræd'], ['lad','læd']], [['raid','reid'], ['laid','leid']], [['rag','ræg'], ['lag','læg']], [['rake','reik'], ['lake','leik']], [['ram','ræm'], ['lamb','læm']], [['ramp','ræmp'], ['lamp','læmp']], [['ran','ræn'], ['lan','læn']], [['rain','rein'], ['lain','lein']], [['wrap','ræp'], ['lap','læp']], [['rat','ræt'], ['lat','læt']], [['rate','reit'], ['late','leit']], [['raw','rɔ'], ['law','lɔ']], [['ray','rei'], ['lay','lei']],
+[['reed','rid'], ['lead','lid']], [['reef','rif'], ['leaf','lif']], [['reek','rik'], ['leak','lik']], [['real','ril'], ['leal','lil']], [['rend','rɛnd'], ['lend','lɛnd']], [['reap','rip'], ['leap','lip']], [['rear','riɚ'], ['leer','liɚ']], [['rest','rɛst'], ['lest','lɛst']], [['reave','riv'], ['leave','liv']],
+[['rib','rɪb'], ['lib','lɪb']], [['rick','rɪk'], ['lick','lɪk']], [['rid','rɪd'], ['lid','lɪd']], [['rife','raif'], ['life','laif']], [['rift','rɪft'], ['lift','lɪft']], [['rhyme','raim'], ['lime','laim']], [['rink','rɪŋk'], ['link','lɪŋk']], [['wrist','rɪst'], ['list','lɪst']], [['writ','rɪt'], ['lit','lɪt']], [['right','rait'], ['light','lait']], [['river','rɪvɚ'], ['liver','lɪvɚ']],
+[['rob','rɑb'], ['lob','lɑb']], [['robe','roub'], ['lobe','loub']], [['rock','rɑk'], ['lock','lɑk']], [['rode','roud'], ['load','loud']], [['room','rum'], ['loom','lum']], [['roan','roun'], ['lone','loun']], [['roo','ru'], ['loo','lu']], [['rope','roup'], ['lope','loup']], [['rot','rɑt'], ['lot','lɑt']], [['row','rou'], ['low','lou']],
+[['ruck','rʌk'], ['luck','lʌk']], [['rude','rud'], ['lewd','lud']], [['rug','rʌg'], ['lug','lʌg']], [['ruse','ruz'], ['lose','luz']], [['rust','rʌst'], ['lust','lʌst']],
+[['breach','britʃ'], ['bleach','blitʃ']], [['brand','brænd'], ['bland','blænd']], [['brat','bræt'], ['blat','blæt']], [['breed','brid'], ['bleed','blid']], [['breast','brɛst'], ['blest','blɛst']], [['bring','brɪŋ'], ['bling','blɪŋ']], [['brink','brɪŋk'], ['blink','blɪŋk']], [['bris','brɪs'], ['bliss','blɪs']], [['bright','brait'], ['blight','blait']], [['broke','brouk'], ['bloke','blouk']], [['bro','brou'], ['blow','blou']], [['bruise','bruz'], ['blues','bluz']], [['brunt','brʌnt'], ['blunt','blʌnt']],
+[['crack','kræk'], ['clack','klæk']], [['cram','kræm'], ['clam','klæm']], [['cramp','kræmp'], ['clamp','klæmp']], [['crap','kræp'], ['clap','klæp']], [['crass','kræs'], ['class','klæs']], [['crave','kreiv'], ['clave','kleiv']], [['craw','krɔ'], ['claw','klɔ']], [['crick','krɪk'], ['click','klɪk']], [['crime','kraim'], ['climb','klaim']], [['crip','krɪp'], ['clip','klɪp']], [['crock','krɑk'], ['clock','klɑk']], [['croak','krouk'], ['cloak','klouk']], [['crone','kroun'], ['clone','kloun']], [['crown','kraun'], ['clown','klaun']], [['cruck','krʌk'], ['cluck','klʌk']], [['cray','krei'], ['clay','klei']],
+[['frack','fræk'], ['flack','flæk']], [['frag','fræg'], ['flag','flæg']], [['frap','fræp'], ['flap','flæp']], [['frat','fræt'], ['flat','flæt']], [['fray','frei'], ['flay','flei']], [['freak','frik'], ['fleek','flik']], [['free','fri'], ['flee','fli']], [['fright','frait'], ['flight','flait']], [['frock','frɑk'], ['flock','flɑk']], [['fro','frou'], ['flow','flou']],
+[['grad','græd'], ['glad','glæd']], [['grade','greid'], ['glade','gleid']], [['gram','græm'], ['glam','glæm']], [['grand','grænd'], ['gland','glænd']], [['groom','grum'], ['gloom','glum']], [['grow','grou'], ['glow','glou']], [['grew','gru'], ['glue','glu']],
+[['pray','prei'], ['play','plei']], [['prod','prɑd'], ['plod','plɑd']], [['proud','praud'], ['ploughed','plaud']], [['spray','sprei'], ['splay','splei']], [['sprint','sprɪnt'], ['splint','splɪnt']],
+[['arrive','əraiv'], ['alive','əlaiv']], [['array','ərei'], ['allay','əlei']]
 ];
 
 var rlFileNotFound = [['raff', 'laugh'], ['red', 'led'], ['rip', 'lip'], ['bread', 'bled'], ['prow', 'plow']['broom', 'bloom'], ['griff', 'glyph']];
 
-var nl = [[['knack'], ['lack']], [['nag'], ['lag']], [['nan'], ['lan']], [['nap'], ['lap']], [['gnash'], ['lash']], [['gnat'], ['lat']], [['natch'], ['latch']], [['knave'], ['lave']], [['gnaw'], ['law']], [['neigh'], ['lay']],
-[['need'], ['lead']], [['neep'], ['leap']], [['near'], ['leer']], [['ness'], ['less']], [['nest'], ['lest']], [['net'], ['let']], [['never'], ['lever']], [['new'], ['loo']], [['nexus'], ['lexis']],
-[['nib'], ['lib']], [['nick'], ['lick']], [['niece'], ['lease']], [['knife'], ['life']], [['nine'], ['line']], [['nip'], ['lip']], [['knit'], ['lit']], [['night'], ['light']],
-[['knob'], ['lob']], [['knock'], ['lock']], [['node'], ['load']], [['nook'], ['look']], [['nope'], ['lope']], [['not'], ['lot']], [['no'], ['low']],
-[['nude'], ['lewd']], [['news'], ['lose']],
-[['snag'], ['slag']], [['snake'], ['slake']], [['snap'], ['slap']], [['snick'], ['slick']], [['snip'], ['slip']], [['snit'], ['slit']], [['snob'], ['slob']], [['snot'], ['slot']], [['snow'], ['slow']], [['snug'], ['slug']],
-[['tannin'], ['talon']], [['winnow'], ['willow']]
+var nl = [[['knack','næk'], ['lack','læk']], [['nag','næg'], ['lag','læg']], [['nan','næn'], ['lan','læn']], [['nap','næp'], ['lap','læp']], [['gnash','næʃ'], ['lash','læʃ']], [['gnat','næt'], ['lat','læt']], [['natch','nætʃ'], ['latch','lætʃ']], [['knave','neiv'], ['lave','leiv']], [['gnaw','nɔ'], ['law','lɔ']], [['neigh','nei'], ['lay','lei']],
+[['need','nid'], ['lead','lid']], [['neep','nip'], ['leap','lip']], [['near','niɚ'], ['leer','liɚ']], [['ness','nɛs'], ['less','lɛs']], [['nest','nɛst'], ['lest','lɛst']], [['net','nɛt'], ['let','lɛt']], [['never','nɛvɚ'], ['lever','lɛvɚ']], [['new','nu'], ['loo','lu']], [['nexus','nɛksəs'], ['lexis','lɛksəs']],
+[['nib','nɪb'], ['lib','lɪb']], [['nick','nɪk'], ['lick','lɪk']], [['niece','nis'], ['lease','lis']], [['knife','naif'], ['life','laif']], [['nine','nain'], ['line','lain']], [['nip','nɪp'], ['lip','lɪp']], [['knit','nɪt'], ['lit','lɪt']], [['night','nait'], ['light','lait']],
+[['knob','nɑb'], ['lob','lɑb']], [['knock','nɑk'], ['lock','lɑk']], [['node','noud'], ['load','loud']], [['nook','nʊk'], ['look','lʊk']], [['nope','noup'], ['lope','loup']], [['not','nɑt'], ['lot','lɑt']], [['no','nou'], ['low','lou']],
+[['nude','nud'], ['lewd','lud']], [['news','nuz'], ['lose','luz']],
+[['snag','snæg'], ['slag','slæg']], [['snake','sneik'], ['slake','sleik']], [['snap','snæp'], ['slap','slæp']], [['snick','snɪk'], ['slick','slɪk']], [['snip','snɪp'], ['slip','slɪp']], [['snit','snɪt'], ['slit','slɪt']], [['snob','snɑb'], ['slob','slɑb']], [['snot','snɑt'], ['slot','slɑt']], [['snow','snou'], ['slow','slou']], [['snug','snʌg'], ['slug','slʌg']],
+[['tannin','tænən'], ['talon','tælən']], [['winnow','wɪnou'], ['willow','wɪlou']]
 ];
 
 var nlFileNotFound = [['nug', 'lug']];
 
-var vw = [[['vac'], ['whack']], [['van'], ['wan']], [['vary'], ['wary']], [['veep'], ['weep']], [['vest'], ['west']], [['vet'], ['wet']], [['vile'], ['while']], [['vine'], ['wine']], [['vow'], ['wow']],
-[['vicar'], ['wicker']], [['viper'], ['wiper']],
-[['rove'], ['row']], [['have'], ['how']], [['grove'], ['grow']]
+var vw = [[['vac','væk'], ['whack','wæk']], [['van','væn'], ['wan','wæn']], [['vary','væri'], ['wary','wæri']], [['veep','vip'], ['weep','wip']], [['vest','vɛst'], ['west','wɛst']], [['vet','vɛt'], ['wet','wɛt']], [['vile','vail'], ['while','wail']], [['vine','vain'], ['wine','wain']], [['vow','vau'], ['wow','wau']],
+[['vicar','vɪkɚ'], ['wicker','wɪkɚ']], [['viper','vaipɚ'], ['wiper','waipɚ']],
+[['rove','rouv'], ['row','rou']], [['have','hæv'], ['how','hau']], [['grove','grouv'], ['grow','grou']]
 ];
 
-var vb = [[['vac'], ['back']], [['van'], ['ban']], [['veep'], ['beep']], [['veer'], ['beer']], [['very'], ['berry']], [['vest'], ['best']], [['vet'], ['bet']], [['vile'], ['bile']], [['vine'], ['bine']], [['vow'], ['bow']], [['vox'], ['box']],
-[['vicar'], ['bicker']],
-[['rove'], ['robe']], [['live'], ['lib']], [['lover'], ['lubber']], [['lav'], ['lab']]
+var vb = [[['vac','væk'], ['back','bæk']], [['van','væn'], ['ban','bæn']], [['veep','vip'], ['beep','bip']], [['veer','viɚ'], ['beer','biɚ']], [['very','vɛri'], ['berry','bɛri']], [['vest','vɛst'], ['best','bɛst']], [['vet','vɛt'], ['bet','bɛt']], [['vile','vail'], ['bile','bail']], [['vine','vain'], ['bine','bain']], [['vow','vau'], ['bow','bau']], [['vox','vɑks'], ['box','bɑks']],
+[['vicar','vɪkɚ'], ['bicker','bɪkɚ']],
+[['rove','rouv'], ['robe','roub']], [['live','lɪv'], ['lib','lɪb']], [['lover','lʌvɚ'], ['lubber','lʌbɚ']], [['lav','læv'], ['lab','læb']]
 ];
 
 var vbFileNotFound = [['vat', 'bat'], ['volley', 'bali']];
