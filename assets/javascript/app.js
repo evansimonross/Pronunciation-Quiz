@@ -349,5 +349,13 @@ $(document).ready(function () {
                 $(this).text($(this).attr('data-word'));
             }
         });
+        $('.reportButton').each(function () {
+            if(ipaMode){
+                $(this).text($(this).attr('data-ipa'));
+            }
+            else{
+                $(this).text($(this).attr('data-word'));
+            }
+        });
     });
 });
