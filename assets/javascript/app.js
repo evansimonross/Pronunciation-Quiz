@@ -234,6 +234,16 @@ displayVowels = function () {
         quiz.questionPool = lowVowels;
     });
 
+    $('#choices').append('<button type="button" id="lowFront" class="btn btn-primary btn-lg answerButton" data-word="Low Front Vowels" data-ipa="[ɛ] vs. [æ]"></button>');
+    $('#lowFront').on('click', function () {
+        quiz.questionPool = lowFrontVowels;
+    });
+
+    $('#choices').append('<button type="button" id="lowBack" class="btn btn-primary btn-lg answerButton" data-word="Low Back Vowels" data-ipa="[ɔ] vs. [ɑ]"></button>');
+    $('#lowBack').on('click', function () {
+        quiz.questionPool = lowBackVowels;
+    });
+
     $('#choices').append('<button type="button" id="midFront" class="btn btn-primary btn-lg answerButton" data-word="Mid Front Vowels" data-ipa="[ɪ], [ei], [ɛ]"></button>');
     $('#midFront').on('click', function () {
         quiz.questionPool = midFrontVowels;
