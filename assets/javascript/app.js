@@ -232,22 +232,27 @@ displayVowels = function () {
     $('#choices').append('<button type="button" id="low" class="btn btn-primary btn-lg answerButton" data-word="Low Vowels" data-ipa="[æ], [ʌ], [ɑ]"></button>');
     $('#low').on('click', function () {
         quiz.questionPool = lowVowels;
-    })
+    });
+
+    $('#choices').append('<button type="button" id="midFront" class="btn btn-primary btn-lg answerButton" data-word="Mid Front Vowels" data-ipa="[ɪ], [ei], [ɛ]"></button>');
+    $('#midFront').on('click', function () {
+        quiz.questionPool = midFrontVowels;
+    });
 
     $('#choices').append('<button type="button" id="midBack" class="btn btn-primary btn-lg answerButton" data-word="Mid Back Vowels" data-ipa="[ɔ], [ou], [oɚ]"></button>');
     $('#midBack').on('click', function () {
         quiz.questionPool = midBackVowels;
-    })
+    });
 
     $('#choices').append('<button type="button" id="rColored" class="btn btn-primary btn-lg answerButton" data-word="R-Colored Vowels" data-ipa="[ɚ], [aɚ], [oɚ]"></button>');
     $('#rColored').on('click', function () {
         quiz.questionPool = rColoredVowels;
-    })
+    });
 
     $('#choices').append('<button type="button" id="back" class="btn btn-dark btn-lg menuButton">Main Menu</button>');
     $('#back').on('click', function () {
         displayMainMenu();
-    })
+    });
 
     // Set the text
     $('.answerButton').each(function (element) {
@@ -314,6 +319,8 @@ displayConsonants = function () {
 };
 
 displayMainMenu = function () {
+    quiz.questionPool = [];
+
     $('#timer').text("Evan's Pronunciation Quiz");
 
     clearData();

@@ -46,7 +46,22 @@ var midBackVowels = [[['awe','ɔ'], ['owe','ou'], ['or','oɚ']], [['caw','kɔ'],
 [['auth','ɔθ'], ['oath','ouθ']]
 ];
 
-var midBackVowelsFileNotFound = [['daw', 'doe', 'door'], ['gaud', 'goad', 'gourd'], ['cone', 'corn'],]
+var midBackVowelsFileNotFound = [['daw', 'doe', 'door'], ['gaud', 'goad', 'gourd'], ['cone', 'corn']];
+
+var midFrontVowels = [[['crip'],['crepe']],[['drip'],['drape']],[['grip'],['grape']],[['gyp'],['jape']],[['hip'],['hep']],[['kip'],['cape']],[['nip'],['nape']],[['pip'],['pep']],[['rape'],['rep']],[['skip'],['scape']],[['strip'],['strep']],[['tip'],['tape']],[['yip'],['yep']],
+[['bit'],['bait'],['bet']],[['fit'],['fate']],[['git'],['git'],['get']],[['grit'],['great']],[['hit'],['hate'],['het']],[['lit'],['late'],['let']],[['mitt'],['mate'],['met']],[['knit'],['net']],[['writ'],['rate'],['ret']],[['sit'],['sate'],['set']],[['skit'],['skate']],[['slit'],['slate']],[['wit'],['wait'],['wet']],
+[['ick','ache']],[['bake'],['beck']],[['brick'],['break']],[['chick'],['check']],[['crick'],['crake']],[['dick'],['deck']],[['drake'],['dreck']],[['flick'],['flake'],['fleck']],[['hick'],['hake'],['heck']],[['kick'],['cake']],[['lick'],['lake']],[['nick'],['neck']],[['pick'],['peck']],[['quick'],['quake']],[['rick'],['rake'],['wreck']],[['sick'],['sake'],['sec']],[['slick'],['slake']],[['spake'],['speck']],[['stick'],['steak']],[['tick'],['take'],['tech']],[['trick'],['trek']],[['wick'],['wake']],
+[['bib'],['babe']],[['dib'],['deb']],[['nib'],['nabe']],
+[['bid'],['bade']],[['braid'],['bread']],[['did'],['dead']],[['fid'],['fade'],['fed']],[['grid'],['grade']],[['hid'],['hade'],['head']],[['mid'],['made'],['med']],[['rid'],['raid'],['red']],[['wade'],['wed']],
+[['big'],['beg']],[['pig'],['peg']],
+[['aim'],['em']],[['dim'],['dame']],[['fame'],['femme']],[['flame'],['phlegm']],[['him'],['hem']],[['limb'],['lame']],[['shim'],['shame']],
+[['in'],['en']],[['bin'],['bane'],['ben']],[['bint'],['bent']],[['chin'],['chain']],[['din'],['den']],[['dint'],['dent']],[['fin'],['feign'],['fen']],[['grin'],['grain']],[['kin'],['cane'],['ken']],[['lint'],['lent']],[['min'],['main'],['men']],[['mint'],['meant']],[['pin'],['pain'],['pen']],[['paint'],['pent']],[['quint'],['quaint']],[['saint'],['sent']],[['stint'],['stent']],[['tin'],['ten']],[['tint'],['taint'],['tent']],[['thin'],['thane']],[['win'],['wane'],['when']],[['wind'],['wend']],
+[['itch'],['aitch'],['etch']],[['fitch'],['fetch']],[['kitsch'],['ketch']],[['rich'],['wretch']],
+[['midge'],['mage']],[['ridge'],['rage']],[['sage'],['sedge']],[['wage'],['wedge']],
+[['ill'],['ale'],['el']],[['bill'],['bail'],['bell']],[['dill'],['dale'],['dell']],[['fill'],['fail'],['fell']],[['frail'],['frill']],[['gill'],['gale']],[['grill'],['grail']],[['hill'],['hail'],['hell']],[['mill'],['mail']],[['nil'],['nail'],['knell']],[['pill'],['pail']],[['quill'],['quail'],['quell']],[['rill'],['rail']],[['sill'],['sail'],['sell']],[['shill'],['shale'],['shell']],[['skill'],['scale'],['skell']],[['snail'],['snell']],[['spill'],['spell']],[['still'],['stale']],[['till'],['tail'],['tell']],[['trill'],['trail']],[['will'],['whale'],['well']]
+];
+
+var midFrontVowelsFileNotFound = [[['pip'],['pape'],['pep']],[['rip'],['rape'],['rep']],[['it'],['eight'],['et']],[['pit'],['pate'],['pet']],[['fake'],['feck']],[['bid'],['bade'],['bed']],[['blade'],['bled']],[['lid'],['led']],[['slid'],['slade'],['sled']],[['rim'],['rem']],[['shim'],['shame'],['shem']],[['din'],['dane'],['den']],[['sin'],['sane']],[['vill'],['vail']]];
 
 var rColoredVowels = [[['burr','bɚ'], ['bar','baɚ'], ['bore','boɚ']], [['chirr','tʃɚ'], ['char','tʃaɚ'], ['chore','tʃoɚ']], [['cur','kɚ'], ['car','kaɚ'], ['core','koɚ']], [['fur','fɚ'], ['far','faɚ'], ['four','foɚ']], [['mar','maɚ'], ['more','moɚ']], [['purr','pɚ'], ['par','paɚ'], ['pour','poɚ']], [['sir','sɚ'], ['soar','soɚ']], [['stir','stɚ'], ['star','staɚ'], ['store','stoɚ']], [['sure','ʃɚ'], ['shore','ʃoɚ']], [['tar','taɚ'], ['tore','toɚ']],
 [['curt','kɚt'], ['cart','kaɚt'], ['court','koɚt']], [['dirt','dɚt'], ['dart','daɚt']], [['hurt','hɚt'], ['heart','haɚt']], [['pert','pɚt'], ['part','paɚt'], ['port','poɚt']], [['shirt','ʃɚt'], ['short','ʃoɚt']], [['tart','taɚt'], ['tort','toɚt']], [['wert','wɚt'], ['wart','woɚt']],
