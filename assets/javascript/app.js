@@ -1,5 +1,8 @@
 var audioSet = false;
-var ipaMode = false;
+var ipaMode = JSON.parse(localStorage.getItem("ipaMode")) || false;
+if(ipaMode){
+    $('#ipaToggle').bootstrapToggle('on');
+}
 var quiz = {
     questionPool: [],
     totalRounds: 10,
@@ -358,6 +361,7 @@ $(document).ready(function () {
     displayMainMenu();
     $('#ipaToggle').change(function () {
         ipaMode = !ipaMode;
+        localStorage.setItem('ipaMode',ipaMode + "");
         $('.answerButton').each(function () {
             if(ipaMode){
                 $(this).text($(this).attr('data-ipa'));
