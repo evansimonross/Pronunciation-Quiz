@@ -17,6 +17,7 @@ var quiz = {
         var countdownTimeout;
 
         $('#choices').empty();
+        $('#choices').removeClass('bg-success bg-danger');
         if (quiz.currentRound === quiz.totalRounds || quiz.questionPool.length === 0) {
             clearInterval(countdownInterval);
             clearTimeout(countdownTimeout);
@@ -75,7 +76,13 @@ var quiz = {
                     $('#correct').text(quiz.correctAnswers);
                     clearInterval(countdownInterval);
                     clearTimeout(countdownTimeout);
-                    quiz.nextQuestion();
+
+                    // Show the "Correct" screen for 1.5 seconds before moving to the next question.
+                    $('#choices').addClass('bg-success');
+                    $('.answerButton').css('visibility','hidden');
+                    $('.menuButton').css('visibility','hidden');
+                    $('#choices').prepend('<div style="margin: auto; position: absolute; left: 0; right: 0; color: #fff"><br><h1>Correct!</h1><br><p>You said <b>' + $(this).text() + '</b>.</p></div>');
+                    setTimeout(quiz.nextQuestion, 1500);
                 });
 
                 // Drop the correctIndex out of bounds to avoid subsequent false positives.
@@ -91,7 +98,13 @@ var quiz = {
                     clearTimeout(countdownTimeout);
                     var youSaid = $(this);
                     quiz.toReport.push({ correctWord, youSaid });
-                    quiz.nextQuestion();
+
+                    // Show the "Incorrect" screen for 1.5 seconds before moving to the next question.
+                    $('#choices').addClass('bg-danger');
+                    $('.answerButton').css('visibility','hidden');
+                    $('.menuButton').css('visibility','hidden');
+                    $('#choices').prepend('<div style="margin: auto; position: absolute; left: 0; right: 0; color: #fff"><br><h1>Incorrect</h1><br><p>You said <b>' + $(this).text() + '</b>.</p><p>The correct answer was <b>' + correctWord[ipaMode ? 1 : 0] + '</b>.</p></div>');
+                    setTimeout(quiz.nextQuestion, 1500);
                 });
             }
 
@@ -123,9 +136,15 @@ var quiz = {
             $('#timeup').text(quiz.timesUp);
             clearInterval(countdownInterval);
             clearTimeout(countdownTimeout);
-            quiz.toReport.push({ correctWord, youSaid: "(TIME)" });
-            quiz.nextQuestion();
-        }, 1000 * (quiz.timeLimit + 1));
+            quiz.toReport.push({ correctWord, youSaid: $('<button type="button" class="btn btn-danger btn-lg reportButton">(TIME)</button>')});
+
+            // Show the "Time's Up" screen for 1.5 seconds before moving to the next question.
+            $('#choices').addClass('bg-danger');
+            $('.answerButton').css('visibility','hidden');
+            $('.menuButton').css('visibility','hidden');
+            $('#choices').prepend('<div style="margin: auto; position: absolute; left: 0; right: 0; color: #fff"><br><h1>Time\'s Up!</h1><br><p>The correct answer was <b>' + correctWord[ipaMode ? 1 : 0] + '</b>.</p></div>');
+            setTimeout(quiz.nextQuestion, 1500);
+        }, 1000 * (quiz.timeLimit));
 
     },
 
@@ -143,6 +162,7 @@ var quiz = {
         for (var i = 0; i < quiz.toReport.length; i++) {
             $('#choices').append('<div id="report' + i + '"></div>');
             var youSaidButton = quiz.toReport[i].youSaid;
+            youSaidButton.css('visibility','visible');
             youSaidButton.on('click', function () {
                 if ($(this).text() === "(TIME)") {
 
@@ -331,6 +351,7 @@ displayConsonants = function () {
 
 };
 
+// Display the main menu options
 displayMainMenu = function () {
     quiz.questionPool = [];
 
@@ -356,7 +377,7 @@ displayMainMenu = function () {
     });
 }
 
-// Sets click listeners for the options buttons at the start
+// Set click listeners for the options buttons at the start
 $(document).ready(function () {
     displayMainMenu();
     $('#ipaToggle').change(function () {
