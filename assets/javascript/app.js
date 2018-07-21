@@ -152,17 +152,13 @@ var quiz = {
     displayReport: function () {
         $('#timer').text('Quiz Results')
 
-        if (quiz.toReport.length === 0) {
-            $('#choices').append('<h3>100% Correct!</h3>');
-        }
-        else {
-            $('#choices').append('<h3>Incorrect Responses:</h3>');
-        }
+        $('#choices').append(quiz.toReport.length === 0 ? '<h3>100% Correct!</h3>' : '<h3>Incorrect Responses:</h3>');
 
         for (var i = 0; i < quiz.toReport.length; i++) {
             $('#choices').append('<div id="report' + i + '"></div>');
             var youSaidButton = quiz.toReport[i].youSaid;
             youSaidButton.css('visibility','visible');
+            youSaidButton.text(ipaMode ? youSaidButton.attr('data-ipa') : youSaidButton.attr('data-word'));
             youSaidButton.on('click', function () {
                 if ($(this).text() === "(TIME)") {
 
@@ -289,12 +285,7 @@ displayVowels = function () {
 
     // Set the text
     $('.answerButton').each(function (element) {
-        if (ipaMode) {
-            $(this).text($(this).attr('data-ipa'));
-        }
-        else {
-            $(this).text($(this).attr('data-word'));
-        }
+        $(this).text(ipaMode ? $(this).attr('data-ipa') : $(this).attr('data-word'));
     });
 
     // Set this as our final function to check if there are any erroneous file names.
@@ -335,12 +326,7 @@ displayConsonants = function () {
 
     // Set the text
     $('.answerButton').each(function () {
-        if (ipaMode) {
-            $(this).text($(this).attr('data-ipa'));
-        }
-        else {
-            $(this).text($(this).attr('data-word'));
-        }
+        $(this).text(ipaMode ? $(this).attr('data-ipa') : $(this).attr('data-word'));
     });
 
     // Set this as our final function to check if there are any erroneous file names.
@@ -384,20 +370,10 @@ $(document).ready(function () {
         ipaMode = !ipaMode;
         localStorage.setItem('ipaMode',ipaMode + "");
         $('.answerButton').each(function () {
-            if(ipaMode){
-                $(this).text($(this).attr('data-ipa'));
-            }
-            else{
-                $(this).text($(this).attr('data-word'));
-            }
+            $(this).text(ipaMode ? $(this).attr('data-ipa') : $(this).attr('data-word'));
         });
         $('.reportButton').each(function () {
-            if(ipaMode){
-                $(this).text($(this).attr('data-ipa'));
-            }
-            else{
-                $(this).text($(this).attr('data-word'));
-            }
+            $(this).text(ipaMode ? $(this).attr('data-ipa') : $(this).attr('data-word'));
         });
     });
 });
