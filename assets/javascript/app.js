@@ -319,11 +319,21 @@ displayConsonants = function () {
         quiz.questionPool = vb;
     });
 
+    $('#choices').append('<button type="button" id="fp" class="btn btn-primary btn-lg answerButton" data-word="F and P" data-ipa="[f] vs. [p]"></button>');
+    $('#fp').on('click', function () {
+        quiz.questionPool = fp;
+    });
+
+    $('#choices').append('<button type="button" id="thssh" class="btn btn-primary btn-lg answerButton" data-word="TH, S and SH" data-ipa="[θ], [s], [ʃ]"></button>');
+    $('#thssh').on('click', function () {
+        quiz.questionPool = thssh;
+    });
+
     $('#choices').append('<button type="button" id="back" class="btn btn-dark btn-lg menuButton">Main Menu</button>');
     $('#back').on('click', function () {
         displayMainMenu();
     })
-
+    
     // Set the text
     $('.answerButton').each(function () {
         $(this).text(ipaMode ? $(this).attr('data-ipa') : $(this).attr('data-word'));
