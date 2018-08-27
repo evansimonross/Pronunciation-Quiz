@@ -2,6 +2,8 @@
 A pronunciation listening quiz for ESL students. 
 
 ## How To Play
+[Click here to play the game](https://evansimonross.github.io/Pronunciation-Quiz/).
+
 This is a listening quiz designed to help ESL students learn to distinguish some of the trickier phonemes of English. The player goes through the menu options to choose a group of sounds to practice. Then, a randomly generated set of 10 questions will play in succession. 
 
 For each question, an audio file of one word's pronunciation will play. On the screen, at least two similarly pronounced words will appear. Only one matches the audio that played. If the player chooses correctly, their "Correct" score will increase. And incorrect choice will increase the "Incorrect" score. 
