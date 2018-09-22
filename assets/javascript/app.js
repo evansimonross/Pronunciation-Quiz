@@ -386,4 +386,7 @@ $(document).ready(function () {
             $(this).text(ipaMode ? $(this).attr('data-ipa') : $(this).attr('data-word'));
         });
     });
+    $('#reset').on('click',function(){
+        location.reload();
+    });
 });

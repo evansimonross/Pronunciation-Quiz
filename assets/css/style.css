@@ -66,11 +66,19 @@ body{
 
 .toggle{
     display:block;
-    margin: 25px;
+    margin: 10px;
     margin-left: auto;
     margin-right: auto;
 }
 
 .toggle-handle{
     background-color: white;
+}
+
+#reset{
+    margin: 10px;
+    margin-right: auto;
+    margin-left: auto;
+    font-weight: bold;
+    width: 75px;
 }
