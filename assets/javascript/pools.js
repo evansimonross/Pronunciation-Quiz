@@ -164,3 +164,12 @@ var thssh = [[['thaw'],['saw'],['shaw']],[['thank'],['sank'],['shank']],[['thane
 ];
 
 var thsshFileNotFound = [[['sag'],['shag']],[['thin'],['sin'],['shin']],[['thought'],['sought']],[['thong'],['song']],[['thud'],['sud']]];
+
+var chjy = [[['jack'],['yak']],[['jam'],['yam']],[['chap'],['yap']],[['char'],['jar']],[['jaw'],['yaw']],
+[['gel'],['yell']],[['cheep'],['jeep']],[['cheer'],['jeer'],['year']],[['chess'],['jess'],['yes']],[['chew'],['jew'],['you']],
+[['chin'],['gin']],[['chip'],['gyp'],['yip']],
+[['joe'],['yo']],[['job'],['yob']],[['chalk'],['jock']],[['choke'],['joke'],['yoke']],[['chore'],['yore']],[['choose'],['use']],[['jot'],['yacht']],[['jowl'],['yowl']],
+[['chuck'],['yuck']],[['chug'],['jug']],[['chum'],['yum']],[['churn'],['yearn']]
+];
+
+var chjyFileNotFound = [[['chill'],['jill']]];

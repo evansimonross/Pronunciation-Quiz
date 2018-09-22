@@ -329,6 +329,11 @@ displayConsonants = function () {
         quiz.questionPool = thssh;
     });
 
+    $('#choices').append('<button type="button" id="chjy" class="btn btn-primary btn-lg answerButton" data-word="CH, J and Y" data-ipa="[tʃ], [dʒ], [j]"></button>');
+    $('#chjy').on('click', function () {
+        quiz.questionPool = chjy;
+    });
+
     $('#choices').append('<button type="button" id="back" class="btn btn-dark btn-lg menuButton">Main Menu</button>');
     $('#back').on('click', function () {
         displayMainMenu();
